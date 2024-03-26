@@ -1,0 +1,76 @@
+.logo{
+    float: left;
+    border-radius: 10px;
+    margin-top: -15px;
+    gap: 20px;
+    
+  }
+  .logo span{
+    display: flex;
+
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  #nav-logo{
+   
+    width: 60px;
+    height: 57px;
+    border-radius: 50%;
+    
+  }
+  
+  #navItm{
+    color: rgb(7, 7, 7);
+    text-decoration: none;
+    font-size: 16px;
+  }
+  #navItm:hover{
+    text-decoration:  2px solid underline;
+  }
+  nav{
+    margin-top: 10px;
+    margin-bottom: px;
+    border-bottom: 3px solid #eeeeee;  
+    border-radius: 10px;
+  }
+  nav .nav-items{
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a{
+    text-decoration: none;
+    color: rgb(3, 3, 3);
+    margin-left: 37px;
+  }
+  nav a.active{
+    text-decoration: underline 4px;
+    font-weight: 650;
+    font-size: 18px;
+    color: green;
+  }
+  nav .nav-logo{
+      display: flex;
+      justify-content: left;
+      width: 5rem;
+      height: 4rem;
+      margin-bottom: -20px;
+      margin-top: 4px;
+      padding-left: 10px;
+    }
+.navbar-toggler{
+    margin: 1px 0 2rem 23rem;
+    
+}
+@media only screen and (max-width: 1000px) {
+    #nav-logo {
+      margin: 2.5rem 0 0 -15rem;
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    #nav-logo {
+      margin: 2.5rem 0 0 -49rem;
+    }
+  }

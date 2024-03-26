@@ -1,0 +1,53 @@
+/* Remove the navbar's default rounded borders and increase the bottom margin */ 
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+}
+
+/* Remove the jumbotron's default bottom margin */ 
+ .jumbotron {
+  margin-bottom: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 0px;
+}
+.appItems{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+#leftNavList{
+  display: flex;
+  flex-direction: row;
+}
+#rightNavList{
+  display: flex;
+  flex-direction: row;
+}
+footer{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 20px;
+}
+.jumbotron{
+  padding: 0;
+  margin: 0;
+  padding-top: 120px;
+  padding-bottom: 180px;
+}
+
+.panel{
+font-family: 'Poppins';
+font-size: 17px;
+}
+
+.col{
+  margin-right: 10rem;
+}

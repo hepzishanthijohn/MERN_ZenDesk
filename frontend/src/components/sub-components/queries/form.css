@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#subhead{
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  background: #051352;
+  color: white;
+  font-size: 30px;
+  position: fixed;
+  top: 0;
+}
+.queriesContainer{
+  margin: 9rem;
+}
+#createQueryBtn{
+  padding: 12px;
+  font-size: 20px;
+  border: 2px solid rgb(64, 217, 17);
+  border-radius: 10px;
+  background-color: rgb(242, 247, 243);
+  margin-bottom: 2rem;
+}
+#querySubmissionContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#queryList{
+  background: #ffffff;
+  border: 1px solid #dedede;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
+  border-radius: 12px;
+  margin:0 0 10px 20px;
+  padding:1px 0 12px 25px;
+}
+#queryPageContainer{
+  background: #ffffff;
+  border: 1px solid #dedede;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
+  border-radius: 12px;
+  margin:120px 0 10px 20px;
+  display: flex;
+  flex-direction: column;
+  padding:50px 60px 12px 185px;
+  width: 80%;
+  font-size: 18px;
+}
+.queryItems{
+  margin: 2rem 0 3rem 5rem;
+  padding: 0 0px 0 6px;
+}
+.form-control{
+  border: 2px solid rgb(212, 209, 209);
+  padding:  15px;
+}
+#subBtn{
+  margin:0 10px 10px 28rem;
+}
+

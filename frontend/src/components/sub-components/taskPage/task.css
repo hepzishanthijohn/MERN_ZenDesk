@@ -1,0 +1,33 @@
+.taskPageContainer{
+    background: #ffffff;
+    width: fit-content;
+    border-radius: 15px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 10rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+.taskContentContainer{
+    margin: 3rem 6rem 5rem 4rem;
+}
+.taskContentContainer input{
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0 0 2rem 0;
+}
+.taskContentContainer label{
+    margin: 0 0 5px 0;
+    font-size: 20px;
+}
+.taskHead{
+    margin:0 0 2rem 0rem;
+    display: flex;
+    justify-content: center;
+}
+.taskHeader{
+    background: aliceblue;
+    padding: 10px 0 0px 0;
+}

@@ -1,0 +1,23 @@
+.headItem{
+    margin:0 0 2rem 0rem;
+    display: flex;
+    justify-content: center;
+    }
+.elementsContainer{
+    margin: 0 0 4rem 22rem;
+    font-size: 17px;
+}
+.elementsContainer label{
+    margin: 0 0 5px 0;
+    font-size: 20px;
+}
+.elementsContainer input{
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0 0 2rem 0;
+}
+.headElement{
+    background: aliceblue;
+    padding: 10px 0 0px 0;
+   
+}
