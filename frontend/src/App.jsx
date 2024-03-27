@@ -2,7 +2,7 @@
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Portal from './components/dashboard/Portal';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,BrowserRouter } from 'react-router-dom';
 import ClientDashboard from './components/dashboard/ClientDashboard';
 import AdminDashboard from './components/dashboard/Admin_dashboard/AdminDashboard';
 import CreateForm from './components/members/CreateForm';
@@ -34,7 +34,7 @@ function App() {
     <UserProvider>
       <MemberProvider>
       <LoginProvider>
-      
+      <BrowserRouter>
         <Routes>
           <Route path='/' element={<BlogPage />} />
           <Route path='registrationform' element={<RegistrationForm />} />
@@ -61,6 +61,7 @@ function App() {
             <Route path="*" element={<Error/>}/>
           </Route>
         </Routes>
+        </BrowserRouter>
       </LoginProvider>
     </MemberProvider>
     </UserProvider>
