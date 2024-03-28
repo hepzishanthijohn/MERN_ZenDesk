@@ -21,3 +21,13 @@
     padding: 10px 0 0px 0;
    
 }
+
+
+@media screen and (max-width: 650px){
+    .elementsContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin:9rem 0 0 2rem;
+    }
+    }

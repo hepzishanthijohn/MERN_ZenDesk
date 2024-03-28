@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './form.css'
 
 
 const QueryForm = () => {
@@ -42,7 +43,7 @@ const QueryForm = () => {
   return (
     <div>
         <h2 id='subhead'>Create your Queries</h2>
-      <div className="row" id='queryPageContainer' style={{fontSize:"18px"}}>
+      <div className="row" id='queryPageContainer' style={{fontSize:"18px",color:"black"}}>
 
         <div className="col-md-6">
           <h5>Topic</h5>

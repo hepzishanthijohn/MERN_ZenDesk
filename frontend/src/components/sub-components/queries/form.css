@@ -18,6 +18,9 @@
 .queriesContainer{
   margin: 9rem;
 }
+#category{
+  color: black;
+}
 #createQueryBtn{
   padding: 12px;
   font-size: 20px;
@@ -56,12 +59,36 @@
 .queryItems{
   margin: 2rem 0 3rem 5rem;
   padding: 0 0px 0 6px;
+  color:black
 }
 .form-control{
   border: 2px solid rgb(212, 209, 209);
   padding:  15px;
+  color: black;
 }
 #subBtn{
   margin:0 10px 10px 28rem;
 }
+@media screen and (max-width: 650px){
 
+ #queryPageContainer h5{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin:2rem 0 0 -9rem;
+}
+.queryItems{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin:2rem 0 0 -9rem;
+}
+}
+@media screen and (max-width: 650px){
+.queriesContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin:9rem 0 0 0px;
+}
+}

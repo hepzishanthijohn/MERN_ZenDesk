@@ -31,3 +31,12 @@
     background: aliceblue;
     padding: 10px 0 0px 0;
 }
+@media screen and (max-width: 650px){
+    .taskPageContainer
+    {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      margin:5rem 0 0 5px;
+    }
+    }

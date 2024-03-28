@@ -19,7 +19,7 @@ const QueryPage = () => {
       <div className="queriesContainer">
       
       
-      <button id='createQueryBtn' onClick={() => navigate('/portal/queryform')}><strong>+ create Query</strong></button>
+      <button id='createQueryBtn' style={{height:"5rem",width:"16rem"}} onClick={() => navigate('/portal/queryform')}><strong>+ create Query</strong></button>
       <div  id='querySubmissionContainer' style={{fontSize:"18px"}}>
         <h2>All Queries</h2>
       <ul id='queriesList'>

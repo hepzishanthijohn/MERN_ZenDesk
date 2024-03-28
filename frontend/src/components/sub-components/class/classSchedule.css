@@ -262,6 +262,20 @@
     width: 80rem;
    }
   }
+  @media (max-width: 1230px) {
+    .class-content{
+     margin-left: 7rem;
+     width: fit-content;
+    }
+    .row-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+    }
+    .roadmap-area{
+      margin-left: 5rem;
+    }
+   }
   
   
   
