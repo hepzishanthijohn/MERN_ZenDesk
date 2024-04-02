@@ -63,9 +63,9 @@
 }
 .form-control{
   border: 2px solid rgb(212, 209, 209);
-  padding:  15px;
   color: black;
 }
+
 #subBtn{
   margin:0 10px 10px 28rem;
 }
@@ -90,5 +90,12 @@
   flex-direction: column;
   justify-content: left;
   margin:9rem 0 0 0px;
+}
+#subBtn{
+  float: right;
+  margin: 2rem -5px 0 0;
+}
+#cancelBtn{
+  margin: 2rem 0 0 -8px;
 }
 }
