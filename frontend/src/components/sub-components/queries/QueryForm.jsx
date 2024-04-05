@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import './form.css'
 
 
 const QueryForm = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-  });
   const navigate = useNavigate();
 
+  const [queryData, setqueryData] = useState({ queryTitle: '',queryDesc: ''});
+  
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setqueryData({ ...queryData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const submissions = JSON.parse(localStorage.getItem('submissions')) || [];
-    localStorage.setItem('submissions', JSON.stringify([...submissions, formData]));
-    navigate('/portal/querypage');
+    try {
+      await axios.post('https://mernstack-zendesk.onrender.com/queries', queryData);
+      navigate('/portal/querypage')
+      // Optionally, you can update the state or show a success message
+    } catch (error) {
+      console.error('Error creating data:', error);
+    }
   };
+  
+  
 
   const [data, setData] = useState(undefined);
 
@@ -75,8 +80,8 @@ const QueryForm = () => {
                 className="form-control"
                 type="text"
                 id="title"
-                name="title"
-                value={formData.title}
+                name="queryTitle"
+                value={queryData.queryTitle}
                 onChange={handleChange}
               />
             </div>
@@ -86,8 +91,8 @@ const QueryForm = () => {
                 <textarea
                   className="form-control"
                   id="description"
-                  name="description"
-                  value={formData.description}
+                  name="queryDesc"
+                  value={queryData.queryDesc}
                   onChange={handleChange}
                 />
               </div>
