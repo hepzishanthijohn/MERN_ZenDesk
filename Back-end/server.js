@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const queryRoutes = require('./routes/queryRoutes');
+const taskRoutes = require('./routes/taskRoutes')
 
 
 require("dotenv").config();
@@ -18,6 +19,7 @@ app.use('/auth',authRoutes)
 app.use('/users',userRoutes);
 app.use('/members',memberRoutes);
 app.use('/queries',queryRoutes)
+app.use('tasks',taskRoutes)
 
 
 const PORT = process.env.PORT || 5000;

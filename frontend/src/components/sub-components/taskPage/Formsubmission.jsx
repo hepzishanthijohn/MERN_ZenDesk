@@ -1,6 +1,7 @@
 // FormSubmission.js
 import React, { useState } from 'react';
 import { useForm } from './FormContext';
+import Navbar from '../Navbar/Navbar';
 import './task.css'
 
 function FormSubmission() {
@@ -44,10 +45,7 @@ function FormSubmission() {
 
   return (
     <div className="taskContainer">
-      <div className="taskHeader">
-    <h1 className='taskHead'>Task Submission</h1>
-    <hr />
-    </div>
+      <Navbar></Navbar>
       <div className="taskPageContainer">
       
       <div className="taskContentContainer">

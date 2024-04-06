@@ -1,13 +1,11 @@
 import React from 'react'
 import './other-elements.css'
+import Navbar from '../Navbar/Navbar';
 
 const PortfolioSubmission = () => {
   return (
     <>
-    <div className="headElement">
-    <h1 className='headItem'>Capstone</h1>
-    <hr />
-    </div>
+    <Navbar></Navbar>
   
     <div className="elementsContainer">
     <label htmlFor="">GitHub URL</label>

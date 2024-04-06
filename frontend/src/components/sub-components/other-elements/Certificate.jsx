@@ -1,14 +1,12 @@
 import React from 'react'
-import './other-elements.css'
+import './other-elements.css';
+import Navbar from '../Navbar/Navbar';
 
 const Certificate = () => {
   return (
     <>
     
-    <div className="headElement">
-    <h1 className='headItem'>Certificates</h1>
-    <hr />
-    </div>
+    <Navbar></Navbar>
     
     <div className="elementsContainer">
     <p>Your Certificate is not yet Generated.</p>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 import axios from 'axios'
 import './form.css'
 
@@ -47,7 +48,7 @@ const QueryForm = () => {
 
   return (
     <div>
-        <h2 id='subhead'>Create your Queries</h2>
+        <Navbar></Navbar>
       <div className="row" id='queryPageContainer' style={{fontSize:"18px",color:"black"}}>
 
         <div className="col-md-6">

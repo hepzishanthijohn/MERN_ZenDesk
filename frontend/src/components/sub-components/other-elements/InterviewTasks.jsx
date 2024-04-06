@@ -1,13 +1,11 @@
 import React from 'react'
-import './other-elements.css'
+import './other-elements.css';
+import Navbar from '../Navbar/Navbar';
 
 const InterviewTasks = () => {
   return (
     <>
-    <div className="headElement">
-    <h1 className='headItem'>Interview Tasks</h1>
-    <hr />
-    </div>
+    <Navbar></Navbar>
     
     
     </>

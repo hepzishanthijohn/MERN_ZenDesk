@@ -1,14 +1,12 @@
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 import './other-elements.css'
 
 const Application = () => {
   return (
     <>
     
-    <div className="headElement">
-    <h1 className='headItem'>My Applications</h1>
-    <hr />
-    </div>
+    <Navbar></Navbar>
     
     <div className="elementsContainer">
     <p>Content available after completing placement preparation</p>

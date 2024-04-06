@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar'
 import axios from 'axios'
 import './form.css'
 
@@ -37,10 +38,8 @@ const QueryPage = () => {
 
   return (
     <div>
-      <h1 id='subhead'>create your queries</h1>
+    <Navbar></Navbar>
       <div className="queriesContainer">
-      
-      
       <button id='createQueryBtn' style={{height:"5rem",width:"16rem"}} onClick={() => navigate('/portal/queryform')}><strong>+ create Query</strong></button>
       <div  id='querySubmissionContainer' style={{fontSize:"18px"}}>
         <h2>All Queries</h2>

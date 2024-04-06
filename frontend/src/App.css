@@ -1,4 +1,16 @@
-
+.user-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-icon svg {
+    width: 54px; /* Adjust the icon size as needed */
+    height: 54px;
+    color: rgb(214, 199, 237);
+    border-radius: 50%; /* Make the icon rounded */
+    margin: 0 25px 0 15px;
+    border:2px solid rgb(214, 199, 237); /* Add some space between the icon and username */
+  }
 
 
 
