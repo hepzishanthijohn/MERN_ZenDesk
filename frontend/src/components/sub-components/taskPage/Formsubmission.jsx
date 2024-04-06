@@ -54,7 +54,7 @@ function FormSubmission() {
     event.preventDefault();
     try {
       await axios.post('https://mernstack-zendesk.onrender.com/tasks', taskData);
-      navigate('/')
+      navigate('/portal/task')
       window.location.reload();
       // Optionally, you can update the state or show a success message
     } catch (error) {

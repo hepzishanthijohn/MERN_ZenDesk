@@ -49,14 +49,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-router.get("/allUsers", async (req, res) => {
-  try{
-    const getUser = await User.find();
-    res.send(getUser);
-}catch(error){
-    res.status(400).send(error)
-}
-});
+
 
 // PUT /users/:id
 router.put("/:id", async (req, res) => {

@@ -40,6 +40,15 @@ router.post("/register", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+//get all authenticated users
+router.get('/', async (req, res) => {
+  try {
+  const user = await User.find();
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // POST /auth/login
 router.post("/login", async (req, res) => {
