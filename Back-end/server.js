@@ -19,7 +19,7 @@ app.use('/auth',authRoutes)
 app.use('/users',userRoutes);
 app.use('/members',memberRoutes);
 app.use('/queries',queryRoutes)
-app.use('tasks',taskRoutes)
+app.use('/tasks',taskRoutes)
 
 
 const PORT = process.env.PORT || 5000;

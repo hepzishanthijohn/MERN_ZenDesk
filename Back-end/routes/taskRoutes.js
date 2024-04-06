@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   });
   
   // Route to get a single record by ID
-  router.get('/:id', getData, (req, res) => {
+  router.get('/:id', getData,(req, res) => {
     res.json(res.task);
   });
   

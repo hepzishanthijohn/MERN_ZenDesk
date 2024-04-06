@@ -20,7 +20,7 @@ function FormSubmission() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/tasks');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/tasks');
       settasksData(response.data);
       console.log(response.data)
     } catch (error) {
@@ -53,7 +53,7 @@ function FormSubmission() {
   const handleSubmit = async(event) => {
     event.preventDefault();
     try {
-      await axios.post('http://localhost:4000/tasks', taskData);
+      await axios.post('https://mernstack-zendesk.onrender.com/tasks', taskData);
       navigate('/')
       window.location.reload();
       // Optionally, you can update the state or show a success message
