@@ -15,7 +15,7 @@ function Navbar() {
   const fetchUsername = async () => {
     try {
       // Make a GET request to the API endpoint
-      const response = await axios.get('https://mernstack-zendesk.onrender.com/tasks');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/users');
       // Assuming the response contains the username under a 'username' key
       setUsername(response.data[0].name);
     } catch (error) {
