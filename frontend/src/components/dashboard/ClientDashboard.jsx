@@ -2,11 +2,15 @@ import React from 'react'
 import { BarChart } from './BarChart';
 import { CardList } from './CardList';
 import { PieChart } from './PieChart';
+import Navbar from '../sub-components/Navbar/Navbar'
 
 
 function ClientDashboard() {
     return (
-        <div className="container" style={{fontSize:"22px"}}>
+        <div>
+            <Navbar></Navbar>
+            <div className="container" style={{fontSize:"22px"}}>
+            
             <div className="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 className="h3 mb-0 text-gray-800" >Dashboard</h1>
             </div>
@@ -42,6 +46,7 @@ function ClientDashboard() {
                 </div>
 
             </div>
+        </div>
         </div>
     );
 }

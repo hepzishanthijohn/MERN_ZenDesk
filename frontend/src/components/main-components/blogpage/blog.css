@@ -7,26 +7,13 @@
     --dark: #3c393d;
     --exDark: #2b2b2b;
 }
-*{
-    
-    padding: 0;
-    margin: 0;
-    font-family: var(--Quicksand);
-}
-body{
-    line-height: 1.4;
-    
-    color: var(--dark);
-}
+
+
 img{
     width: 100%;
     display: block;
 }
-.container{
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 1.2rem;
-}
+
 
 /* header */
 header{
@@ -37,38 +24,8 @@ header{
     justify-content: stretch;
     
 }
-.navbar{
-    background: rgba(0, 0, 0, 0.688);
-    padding: 1.2rem;
-}
-.navbar-brand{
-    color: #fff;
-    font-size: 2rem;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    font-family: var(--Playfair);
-    letter-spacing: 1px;
-}
-.navbar-nav{
-    padding: 0.8rem 0 0.2rem 0;
 
-}
-.navbar-nav a{
-    text-transform: uppercase;
-    font-family: var(--Roboto);
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #fff;
-    text-decoration: none;
-    display: inline-block;
-    padding: 0.4rem 0.1rem;
-    letter-spacing: 3px;
-    transition: opacity 0.5s ease;
-}
-.navbar-nav a:hover{
-    opacity: 0.7;
-}
+
 
 .banner{
     
@@ -314,10 +271,7 @@ footer{
 
 /* Media Queries */
 @media screen and (min-width: 540px){
-    .navbar-nav a{
-        padding-right: 1.2rem;
-        padding-left: 1.2rem;
-    }
+
     .banner-title{
         font-size: 5rem;
     }
@@ -330,11 +284,7 @@ footer{
 }
 
 @media screen and (min-width: 768px){
-    .navbar .container{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    
     .search-input{
         padding: 0.8rem 0;
     }
@@ -361,7 +311,7 @@ footer{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 3rem;
-        align-items: center;
+        
     }
 }
 

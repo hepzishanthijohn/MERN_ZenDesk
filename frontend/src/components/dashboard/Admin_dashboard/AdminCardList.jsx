@@ -4,23 +4,24 @@ import { AdminCard } from './AdminCard';
 
 /*cards datalist*/
 export function AdminCardList() {
+    
     const cardData = [
         {
             title: "REGISTERD USER",
             count: 1500,
-            colors: "success",
+            colors: "primary",
             icon: faUserAlt
         },
         {
             title: "MENTORS",
             count: 100,
-            colors: "warning",
+            colors: "primary",
             icon: faChalkboardTeacher
         },
         {
             title: "VISITORS",
             count: 350,
-            colors: "info",
+            colors: "primary",
             icon: faUsers,
 
         },

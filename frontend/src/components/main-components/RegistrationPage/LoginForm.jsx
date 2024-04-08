@@ -58,7 +58,8 @@ function LoginForm(props) {
                                                         localStorage.setItem('userToken', data.token);
                                                         const decoded = jwt_decode(data.token);
                                                         setUser({ token: data.token, role: decoded.user.role });
-                                                        navigateTo('/portal/login');
+                                                        console.log(data)
+                                                        navigateTo('/login');
                                                         setSubmitting(false);
                                                     })
                                                     .catch(error => {

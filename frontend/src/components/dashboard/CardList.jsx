@@ -8,28 +8,28 @@ export function CardList() {
         {
             title: "TASK",
             count: 30,
-            colors: "warning",
+            colors: "primary",
             icon: faBookReader
         },
         {
             title: "SUBMITTED TASK",
             count: 15,
-            colors: "success",
+            colors: "primary",
             icon: faTasks
         },
         
         {
             title: "PENDING TASK",
             count: 5,
-            colors: "info",
+            colors: "primary",
             icon: faClipboardList,
 
         },
         {
-            title: "NEW MEMBER",
+            title: "PERCENTAGE",
             count: "58",
             colors: "primary",
-            icon: faUserPlus
+            icon:  faUserAlt
         }
     ];
     return (

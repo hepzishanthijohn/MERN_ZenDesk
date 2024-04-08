@@ -14,8 +14,8 @@ export const data = {
             data: [70, 30],
             backgroundColor: [
 
-                "rgba(28,20,138,1)",
-                "rgba(54,105,204,1)"
+                "rgba(20,10,108,10)",
+                "rgba(154,125,214,100)"
             ],
             borderColor: "white",
             borderwidth: 500,

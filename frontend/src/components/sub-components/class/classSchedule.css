@@ -1,10 +1,12 @@
 .class-content{
   margin-left: 320px;
+ 
   
 }
 
 
 #classHeader{
+  
   display: flex;
   justify-content: center;
   border-radius: 10px;
@@ -61,8 +63,6 @@
     padding: 16px 32px;
   }
   .sessionsContainer .roadmap_icon_container {
-    
-   
     width: 40px;
     height: 40px;
     justify-content: center;

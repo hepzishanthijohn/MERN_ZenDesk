@@ -41,6 +41,7 @@ function App() {
           <Route path='loginform' element={<LoginForm />} />
           <Route path="landing" element={<Landing/>} />
           <Route  path="blog" element={<Home />}/>
+          <Route path='login' element={<Login />} />
           <Route path='/portal' element={<Portal />}>
             <Route path='clientdashboard' element={<ClientDashboard />} />
             <Route path='admindashboard' element={<AdminDashboard />} />
@@ -50,7 +51,7 @@ function App() {
             <Route path='capstone' element={<Capstone />} />
             <Route path='interviewtask' element={<InterviewTasks />} />
             <Route path='portfoliosubmission' element={<PortfolioSubmission />} />
-            <Route path='login' element={<Login />} />
+            
             <Route path='webcode' element={<Webcode />} />
             <Route path='certificate' element={<Certificate />} />
             <Route path='queryform' element={<QueryForm />} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../Navbar/Navbar';
 import './classSchedule.css';
 
 
@@ -21,12 +22,8 @@ const ClassSchedule = () => {
     return (
         <>
           <div >
-            
-            <div className="main">
-            <h1 id='classHeader'>Class Schedule</h1>
-           
-
-           <div className="row-container" style={{fontSize:"22px"}}>
+          <Navbar></Navbar>
+           <div className="row-container" style={{fontSize:"22px",marginTop:"-5rem"}}>
                <div className="class-content">
                    <div className="class-head d-flex px-3" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
                        <h3 className="classhead m-0 text-white">Join the class on time!</h3>
@@ -253,7 +250,7 @@ const ClassSchedule = () => {
 
 
             </div>
-          </div>
+       
         </>
     );
 };
