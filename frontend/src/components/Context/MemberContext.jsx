@@ -6,7 +6,8 @@ let MemberContext = createContext();
 
 export const MemberProvider = ({ children }) => {
     const [username, setUsername] = useState("");
-    return <MemberContext.Provider value={{ username, setUsername }}>
+    const [password, setPassword] =useState("");
+    return <MemberContext.Provider value={{ username, setUsername,password,setPassword }}>
         {children}
     </MemberContext.Provider>
 }

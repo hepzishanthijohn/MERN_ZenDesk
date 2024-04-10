@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AdminBarChart } from './AdminBarChart';
 import  {AdminPieChart} from './AdminPieChart';
 import { AdminCardList } from './AdminCardList';
-
+import Navbar from '../../sub-components/Navbar/Navbar'
 import axios from 'axios';
 
 
@@ -53,7 +53,9 @@ const AdminDashboard = () => {
   return (
     
         
-          <div className='dashboardContainer' style={{fontSize:"22px"}}>
+          <div>
+            <Navbar></Navbar>
+            <div className='dashboardContainer' style={{fontSize:"22px"}}>
          <div className="container">
             <div className="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 className="h3 mb-0 text-gray-800" >Dashboard</h1>
@@ -68,9 +70,9 @@ const AdminDashboard = () => {
                         <div className="card-header py-3">
                             <h6 className="m-0 font-weight-bold text-primary">Users & Members</h6>
                         </div>
-                        <div className="card-body">
-                            <div className="chart-bar">
-                                <AdminBarChart />
+                        <div className="card-body " >
+                            <div className="chart-bar " >
+                                <AdminBarChart  />
                             </div>
                         </div>
                     </div>
@@ -129,6 +131,7 @@ const AdminDashboard = () => {
          </div>
          </div>
          </div>
+          </div>
           </div>
     
     

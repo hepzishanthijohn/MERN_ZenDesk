@@ -7,18 +7,21 @@ export function AdminCardList() {
     
     const cardData = [
         {
+            id: 1,
             title: "REGISTERD USER",
             count: 1500,
             colors: "primary",
             icon: faUserAlt
         },
         {
+            id: 2,
             title: "MENTORS",
             count: 100,
             colors: "primary",
             icon: faChalkboardTeacher
         },
         {
+            id: 3,
             title: "VISITORS",
             count: 350,
             colors: "primary",
@@ -26,6 +29,7 @@ export function AdminCardList() {
 
         },
         {
+            id: 4,
             title: "NEW MEMBER",
             count: "58",
             colors: "primary",
@@ -34,7 +38,7 @@ export function AdminCardList() {
     ];
     return (
         <div className='row'>
-            {cardData.map((dt) => <AdminCard data={dt}/>)}
+            {cardData.map((dt) => <AdminCard key={dt.id} data={dt}/>)}
         </div>
     );
 }

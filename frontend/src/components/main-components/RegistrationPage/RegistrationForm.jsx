@@ -26,7 +26,7 @@ function RegistrationForm() {
     return (
         <>
 
-<section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+<section className="vh-100" style={{ background:`linear-gradient(120deg, #ff6a8e, #fad9c8, #fad9c9, #ffd8ff)`}}>
         <div className="container d-flex justify-content-center align-items-center py-4 h-100">
 
               <div className="card d-flex align-items-center " style={{ borderRadius: " 1rem" }}>
