@@ -23,6 +23,24 @@ const StudentTaskListPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const userToken = localStorage.getItem('userToken');
+
+    if (userToken) {
+        try {
+            const decodedToken = jwt_decode(userToken);
+          
+            const userName = decodedToken.user.name;
+            setUsername(userName);
+            
+        } catch (error) {
+            console.error('Error decoding token:', error);
+        }
+    } else {
+        console.error('Admin token not found in local storage');
+    }
+}, []);
+
 
   useEffect(() => {
     fetchTaskData();
@@ -30,7 +48,7 @@ const StudentTaskListPage = () => {
 
   const fetchTaskData = async () => {
     try {
-      const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${currentStudentId}/tasks/submitted`);
       setTasks(response.data);
     } catch (error) {
       console.log('Error fetching tasks:', error);
@@ -43,15 +61,16 @@ const StudentTaskListPage = () => {
     <>
     <Navbar></Navbar>
      <div style={{marginLeft:"4rem"}}>
-      <h1>Submission Task List</h1>
+      <h1>Student Task List</h1>
       <ul>
         {tasks.map(task => (
           <TaskContainer key={task._id}>
             <div>
-              <p>{username}</p>
+            <h5 className='mb-4 mt-4'>{task.taskTitle}</h5>
+           
               <div>
                 <div>
-                  {!task.submission && (
+                  {task.submission===""&& (
                     <div>
                       <p>No submission for this task</p>
                       {/* Display task details here */}
@@ -61,7 +80,7 @@ const StudentTaskListPage = () => {
                     <div>
                       
                       <div>
-                      <p>{task.taskTitle}</p>
+                      
                       <div key={index}>
                       {key === 'frontendSrcCode' && task.submission[key] && <p>Frontend Source Code: <Link>{task.submission[key]}</Link></p>}
                       {key === 'backendSrcCode' && task.submission[key] && <p>Backend Source Code: <Link>{task.submission[key]}</Link></p>}
