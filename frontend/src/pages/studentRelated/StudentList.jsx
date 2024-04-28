@@ -16,7 +16,7 @@ const StudentList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/student');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/student');
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
@@ -25,7 +25,7 @@ const StudentList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
-      axios.delete(`http://localhost:5003/student/${id}`)
+      axios.delete(`https://mernstack-zendesk.onrender.com/student/${id}`)
         .then(response => {
           console.log('Record deleted successfully:', response);
           window.location.reload();

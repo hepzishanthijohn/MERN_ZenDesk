@@ -14,7 +14,7 @@ const CreateStudent = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/course');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/course');
       setCourses(response.data);
     } catch (error) {
       console.error('Error fetching courses:', error);
@@ -28,7 +28,7 @@ const CreateStudent = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5003/student/register', formData);
+      await axios.post('https://mernstack-zendesk.onrender.com/student/register', formData);
       navigate('/portal/studentList');
     } catch (error) {
       console.error('Error creating student:', error);

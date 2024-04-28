@@ -38,7 +38,7 @@ const SubmitTaskForm = () => {
     try {
       const taskId=localStorage.getItem('currentTaskId')
       const currentStudentId = localStorage.getItem('currentStudentId');
-      const response = await axios.get(`http://localhost:5003/taskSubmission/${currentStudentId}/tasks/submitted`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${currentStudentId}/tasks/submitted`);
       setTasks(response.data);
       
     } catch (error) {

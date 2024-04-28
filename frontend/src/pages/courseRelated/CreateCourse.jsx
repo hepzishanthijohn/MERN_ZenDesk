@@ -20,7 +20,7 @@ const CreateCourse = () => {
         return;
       }
       
-      await axios.post('http://localhost:5003/course', formData);
+      await axios.post('https://mernstack-zendesk.onrender.com/course', formData);
       navigate('/portal/courseList');
     } catch (error) {
       console.error('Error creating data:', error);

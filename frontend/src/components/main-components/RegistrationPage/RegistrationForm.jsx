@@ -48,7 +48,7 @@ function RegistrationForm() {
                                                 validationSchema={RegistrationSchema}
                                                 onSubmit={(values, { setSubmitting, resetForm }) => {
                                                    
-                                                    axios.post('http://localhost:5003/auth/register', values, {
+                                                    axios.post('https://mernstack-zendesk.onrender.com/auth/register', values, {
                                                         headers: {
                                                             'Content-Type': 'application/json',
                                                         }

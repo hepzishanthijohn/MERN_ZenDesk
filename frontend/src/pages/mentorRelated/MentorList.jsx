@@ -16,7 +16,7 @@ const MentorList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/mentor');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/mentor');
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
@@ -25,7 +25,7 @@ const MentorList = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
-      axios.delete(`http://localhost:5003/mentor/${id}`)
+      axios.delete(`https://mernstack-zendesk.onrender.com/mentor/${id}`)
         .then(response => {
           console.log('Record deleted successfully:', response);
           window.location.reload();

@@ -15,7 +15,7 @@ const CreateMentor = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/course');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/course');
       setCourses(response.data);
     } catch (error) {
       console.error('Error fetching courses:', error);
@@ -29,7 +29,7 @@ const CreateMentor = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5003/mentor/register', formData);
+      await axios.post('https://mernstack-zendesk.onrender.com/mentor/register', formData);
       navigate('/portal/mentorList')
       // Optionally, you can update the state or show a success message
     } catch (error) {
@@ -99,7 +99,7 @@ export default CreateMentor;
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:5003/course');
+      const response = await axios.get('https://mernstack-zendesk.onrender.com/course');
       setCourses(response.data);
     } catch (error) {
       console.error('Error fetching courses:', error);

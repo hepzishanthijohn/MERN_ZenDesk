@@ -12,7 +12,7 @@ const StudentQueryListPage = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`http://localhost:5003/query`);
+        const response = await axios.get(`https://mernstack-zendesk.onrender.com/query`);
         setQuery(response.data);
       } catch (error) {
         console.log('Error fetching tasks:', error);

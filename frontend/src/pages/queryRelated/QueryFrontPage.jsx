@@ -44,7 +44,7 @@ const QueryPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5003/query/student/${userid}`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/query/student/${userid}`);
       setQueryData(response.data);
       
       // console.log(response.data)
@@ -54,7 +54,7 @@ const QueryPage = () => {
   };
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
-      axios.delete(`http://localhost:5003/query/`+id)
+      axios.delete(`https://mernstack-zendesk.onrender.com/query/`+id)
         .then(response => {
           console.log('Record deleted successfully:', response);
           // Optionally, you can perform additional actions like updating state or re-fetching data

@@ -15,7 +15,7 @@ export function AdminCardList() {
 
     const fetchMentorData = async () => {
         try {
-            const response = await axios.get('http://localhost:5003/mentor');
+            const response = await axios.get('https://mernstack-zendesk.onrender.com/mentor');
             setMentorData(response.data);
             // console.log(response.data);
         } catch (error) {
@@ -28,7 +28,7 @@ export function AdminCardList() {
 
     const fetchStudentData = async () => {
         try {
-            const response = await axios.get('http://localhost:5003/student');
+            const response = await axios.get('https://mernstack-zendesk.onrender.com/student');
             setStudentData(response.data);
             // console.log(response.data);
         } catch (error) {
@@ -40,7 +40,7 @@ export function AdminCardList() {
     }, []);
     const fetchCourseData = async () => {
         try {
-            const response = await axios.get('http://localhost:5003/course');
+            const response = await axios.get('https://mernstack-zendesk.onrender.com/course');
             setCourseData(response.data);
             // console.log(response.data);
         } catch (error) {

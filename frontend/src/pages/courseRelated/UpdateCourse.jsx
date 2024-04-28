@@ -11,7 +11,7 @@ const UpdateCourse = () => {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        axios.get('http://localhost:5003/course/'+id)
+        axios.get('https://mernstack-zendesk.onrender.com/course/'+id)
         .then(result => {
             // console.log(result)
            setCoursename(result.data.courseName)
@@ -22,7 +22,7 @@ const UpdateCourse = () => {
 
     const Update = (e) =>{
         e.preventDefault();
-        axios.put('http://localhost:5003/course/'+id,{courseName})
+        axios.put('https://mernstack-zendesk.onrender.com/course/'+id,{courseName})
         .then(result =>{
             console.log(result)
             navigate('/portal/courseList')

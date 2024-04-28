@@ -22,7 +22,7 @@ const QueryResponse = () => {
   const fetchData = async () => {
     try {
       const queryIdFromStorage = localStorage.getItem('currentqueryId');
-      const response = await axios.get(`http://localhost:5003/query/${queryIdFromStorage}`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/query/${queryIdFromStorage}`);
       setQuery(response.data);
     } catch (error) {
       console.log('Error fetching query details:', error);
@@ -40,7 +40,7 @@ const QueryResponse = () => {
         submissionDate: new Date()
       };
       const queryIdFromStorage = localStorage.getItem('currentQueryId');
-      await axios.post(`http://localhost:5003/querySubmission/${queryIdFromStorage}`, submissionData);
+      await axios.post(`https://mernstack-zendesk.onrender.com/querySubmission/${queryIdFromStorage}`, submissionData);
       setSubmissionSuccess(true); // Set submission success state to true
       // Optionally, you can display a success message or redirect to another page
     } catch (error) {

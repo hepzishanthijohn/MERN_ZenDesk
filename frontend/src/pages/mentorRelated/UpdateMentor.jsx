@@ -12,7 +12,7 @@ const UpdateMentor = () => {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        axios.get('http://localhost:5003/mentor/'+id)
+        axios.get('https://mernstack-zendesk.onrender.com/mentor/'+id)
         .then(result => {
             // console.log(result)
            setName(result.data.name)
@@ -24,7 +24,7 @@ const UpdateMentor = () => {
 
     const Update = (e) =>{
         e.preventDefault();
-        axios.put('http://localhost:5003/mentor/'+id,{name,email,contact})
+        axios.put('https://mernstack-zendesk.onrender.com/mentor/'+id,{name,email,contact})
         .then(result =>{
             // console.log(result)
             navigate('/portal/mentorList')

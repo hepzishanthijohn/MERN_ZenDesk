@@ -40,7 +40,7 @@ const StudentQuerySubmissionpage = () => {
       const dataWithUsername = { ...queryData, username: username };
 
       // Send POST request with data containing the username
-      await axios.post('http://localhost:5003/query', dataWithUsername);
+      await axios.post('https://mernstack-zendesk.onrender.com/query', dataWithUsername);
 
       setSubmitted(true);
       navigate('/portal/queryFrontPage') // Set submitted to true
