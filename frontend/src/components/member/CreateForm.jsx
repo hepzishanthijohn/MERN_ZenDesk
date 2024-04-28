@@ -14,7 +14,7 @@ const CreateForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('https://mernstack-zendesk.onrender.com/members/student/register', formData);
+      await axios.post('https://mernstack-zendesk.onrender.com/members/register', formData);
       navigate('/portal/listmember')
       // Optionally, you can update the state or show a success message
     } catch (error) {
