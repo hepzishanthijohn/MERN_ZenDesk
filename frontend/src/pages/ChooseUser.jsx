@@ -80,20 +80,10 @@ const ChooseUser = ({ visitor }) => {
           
             
 
-        <div onClick={() => navigateHandler("Mentor")} >
-         
-          <div className="card" style={{fontSize:"19px"}}>
-            <StyledPaper>
-            <div className="card-body">
-              <div className="card-title"><StyledTypography>Mentor</StyledTypography></div>
-              <p className="card-text">Login as a Mentor to create courses, assignments, and track student progress.</p>
-            </div>
-            </StyledPaper>
-            
-          </div>
+        
           
 
-        </div>
+       
           
       </div>
 
