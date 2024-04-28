@@ -37,7 +37,7 @@ const Popup = () => {
                             
                             <div className="modal-body">
                                 <p>Get Started Learning </p>
-                                <a href="/loginform">Login here</a>
+                                <a href="/chooseUser">Login here</a>
                             </div>
                             <br></br>
                             <div className="modal-body">

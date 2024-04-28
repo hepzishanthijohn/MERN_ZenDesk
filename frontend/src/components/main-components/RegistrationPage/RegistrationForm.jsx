@@ -26,10 +26,10 @@ function RegistrationForm() {
     return (
         <>
 
-<section className="vh-100" style={{ background:`linear-gradient(120deg, #ff6a8e, #fad9c8, #fad9c9, #ffd8ff)`}}>
-        <div className="container d-flex justify-content-center align-items-center py-4 h-100">
+<section className="vh-100" style={{ background:`linear-gradient(120deg, #4a0be2, #e6e6fa)`}}>
+        <div className="container d-flex justify-content-center align-items-center py-4  h-100">
 
-              <div className="card d-flex align-items-center " style={{ borderRadius: " 1rem" }}>
+              <div className="card d-flex align-items-center " >
                 
                  
                   
@@ -37,9 +37,9 @@ function RegistrationForm() {
 
                       
 
-                        <div className="d-flex align-items-center mb-5 pb-4">
-                          <i className="fa fa-cubes fa-2x me-5" style={{ color: "#ff6219" }}></i>
-                          <span className="h1 fw-bold mb-2">Sign-Up</span>
+                        <div className="d-flex align-items-center mb-4 pb-4">
+                          <i className="fa fa-cubes fa-3x me-5" style={{ color: "#ff6219" }}></i>
+                          <span className="h3">Sign-Up</span>
                         </div>
       
 
@@ -47,17 +47,17 @@ function RegistrationForm() {
                                                 initialValues={{ name: '', email: '', password: '' }}
                                                 validationSchema={RegistrationSchema}
                                                 onSubmit={(values, { setSubmitting, resetForm }) => {
-                                                    console.log(JSON.stringify(values));
-                                                    axios.post('https://mernstack-zendesk.onrender.com/auth/register', values, {
+                                                   
+                                                    axios.post('http://localhost:5003/auth/register', values, {
                                                         headers: {
                                                             'Content-Type': 'application/json',
                                                         }
                                                     })
                                                         .then(response => {
                                                             // Assuming successful registration if no errors
-                                                            navigateTo('/loginform');
+                                                            navigateTo('/chooseUser');
                                                             // Handle response data here
-                                                            console.log(response.data);
+                                                           
                                                             setSubmitting(false);
                                                             resetForm()
                                                         })
@@ -67,17 +67,17 @@ function RegistrationForm() {
                                                         });
                                                 }}>
                                                 {({ isSubmitting }) => (
-                                                    <Form  style={{fontSize:"17px"}}>
+                                                    <Form  >
                                                         <div className="form-outline mb-4">
                                                             <Field type='text' name="name" placeholder="Username"
-                                                                className="form-control form-control-lg"></Field>
+                                                                className="form-control form-control"></Field>
                                                             <ErrorMessage name='name' component="div"></ErrorMessage>
                                                             <p className="form-label" htmlFor="form2Example17">Name</p>
                                                         </div>
 
                                                         <div className="form-outline mb-4">
                                                             <Field type='email' name="email" placeholder="Email"
-                                                                className="form-control form-control-lg "></Field>
+                                                                className="form-control form-control "></Field>
                                                             <ErrorMessage name='email' component="div"></ErrorMessage>
                                                             <p className="form-label" htmlFor="form2Example17">Email</p>
                                                         </div>
@@ -85,20 +85,20 @@ function RegistrationForm() {
 
                                                         <div className="form-outline mb-4">
                                                             <Field type='password' name="password" placeholder="Password"
-                                                                className="form-control form-control-lg"></Field>
+                                                                className="form-control form-control"></Field>
                                                             <ErrorMessage name='password' component="div"></ErrorMessage>
                                                             <p className="form-label" htmlFor="form2Example27">Password</p>
                                                         </div>
 
 
-                                                        <div className="pt-1 mb-4">
-                                                            <button className="btn btn-dark"  type="submit" disabled={isSubmitting}><h3>Register</h3></button>
+                                                        <div className="pt-1 mb-4 ">
+                                                            <button className="btn btn-dark " style={{borderRadius:"4px",fontSize:"19px", backgroundColor: "#4a1be2" }}  type="submit" disabled={isSubmitting}>Register</button>
                                                         </div>
                                                     </Form>
                                                 )}
                                             </Formik>
-                                            <p className="mb-5 pb-lg-8" style={{ color: "#393f81" , fontSize:"19px" }}>Already have an account? <Link to="/loginform"
-                                                style={{ color: "#393f81" }}>login here</Link></p>
+                                            <p className="mb-5 pb-lg-8" style={{ color: "#393f81",fontSize:"19px" }}>Already have an account? <Link to="/AdminLogin"
+                                                style={{ color: "#4a1be2",textDecoration:"underline" }}>login here</Link></p>
 
 
 

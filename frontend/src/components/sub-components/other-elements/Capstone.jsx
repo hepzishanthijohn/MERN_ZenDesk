@@ -7,7 +7,7 @@ const Capstone = () => {
     <>
     
     <Navbar></Navbar>
-   
+    <h3 className='d-flex justify-content-center'>Capstone</h3>
    
     
     </>

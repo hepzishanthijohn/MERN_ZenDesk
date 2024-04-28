@@ -276,6 +276,21 @@
       margin-left: 5rem;
     }
    }
+   
+   @media (min-width: 1230px) {
+     .class-content{
+      margin-left: 8rem;
+      width: fit-content;
+     }
+     .row-container{
+       display: flex;
+       flex-direction: row;
+       justify-content: left;
+     }
+     .roadmap-area{
+       margin-left: 5rem;
+     }
+    }
   
   
   

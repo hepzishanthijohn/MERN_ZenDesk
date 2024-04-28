@@ -7,7 +7,7 @@ const Webcode = () => {
     <>
     
     <Navbar></Navbar>
-    
+    <h3 className='d-flex justify-content-center'>WebCode</h3>
     
     
     </>

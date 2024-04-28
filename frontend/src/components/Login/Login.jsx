@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginContext from '../Context/LoginContext';
-import UserContext from '../Context/MemberContext';
+import LoginContext from '../../Context/LoginContext';
+import UserContext from '../../Context/MemberContext';
 import adminImg from './images/admin.png';
 import userImg from './images/userImg.png';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-import LoginContext from '../../Context/LoginContext';
+import LoginContext from '../../../Context/LoginContext';
 import axios from 'axios';
 
 import './task.css';
@@ -22,7 +22,7 @@ function FormSubmission() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://mernstack-zendesk.onrender.com/tasks');
+      const response = await axios.get('http://localhost:5003/tasks');
       settasksData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -32,7 +32,7 @@ function FormSubmission() {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
-      axios.delete(`https://mernstack-zendesk.onrender.com/tasks/` + id)
+      axios.delete(`http://localhost:5003/tasks/` + id)
         .then(response => {
           console.log('Record deleted successfully:', response);
           window.location.reload();
@@ -49,7 +49,7 @@ function FormSubmission() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('https://mernstack-zendesk.onrender.com/tasks', taskData);
+      await axios.post('http://localhost:5003/tasks', taskData);
       navigate('/portal/task');
       window.location.reload();
     } catch (error) {

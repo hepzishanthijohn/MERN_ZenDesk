@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const Admin = require("../models/AdminSchema");
 const router = express.Router();
 
 // POST /auth/register
@@ -9,12 +9,12 @@ router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    let user = await User.findOne({ email });
+    let user = await Admin.findOne({ email });
     if (user) {
-      return res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ msg: "Admin already exists" });
     }
 
-    user = new User({
+    user = new Admin({
       name,
       email,
       password,
@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
     //       id: user._id,
     //     },
     //   };
-    res.status(201).json({ msg: "User registered successfully" });
+    res.status(201).json({ msg: "Admin registered successfully" });
 
     
 
@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
 //get all authenticated users
 router.get('/', async (req, res) => {
   try {
-  const user = await User.find();
+  const user = await Admin.find();
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
   const name =req.body;
 
   try {
-    let user = await User.findOne({ email });
+    let user = await Admin.findOne({ email });
     if (!user) {
       return res.status(400).json({ msg: "Invalid Credentials" });
     }else{
@@ -94,7 +94,7 @@ router.post("/login", async (req, res) => {
 
 // GET /auth/logout
 router.get("/logout", (req, res) => {
-  res.json({ msg: "User logged out successfully" });
+  res.json({ msg: "Admin logged out successfully" });
 });
 
 module.exports = router;

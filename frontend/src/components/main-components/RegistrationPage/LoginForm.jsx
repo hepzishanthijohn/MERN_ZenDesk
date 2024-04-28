@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import { useUserContext } from '../UserContext';
+
 
 // Validation Schema using yup
 const LoginSchema = Yup.object().shape({
@@ -18,14 +18,15 @@ const LoginSchema = Yup.object().shape({
 });
 
 function LoginForm(props) {
-    const { setUser } = useUserContext();
+    
     const [isLoading, setIsLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const navigateTo = useNavigate();
+    
 
     return (
         <>
-            <section className="vh-100" style={{ background:`linear-gradient(120deg, #ff6a8e, #fad9c8, #fad9c9, #ffd8ff)` }}>
+            <section className="vh-100" style={{ background:`linear-gradient(120deg, #4a0be2, #e6e6fa)` }}>
                 <div className="container d-flex justify-content-center  py-4  h-100">
                     <div className="card " style={{ borderRadius: " 1rem" }}>
                         <div className="row-5 d-flex justify-content-center ">
@@ -33,17 +34,17 @@ function LoginForm(props) {
                                 <div className="card-body p-5  text-black">
                                     <div className="d-flex align-items-center mb-5 pb-3">
                                         <i className="fa fa-cubes fa-4x me-5" style={{ color: "#ff6219" }}></i>
-                                        <span className="h1 fw-bold mb-1">Sign-In</span>
+                                        <span className="h2 mb-0">Sign-In</span>
                                         
                                     </div>
                                     {errorMessage && <div className="text-danger">{errorMessage}</div>}
-                                    <h3 className="fw-normal mb-2 pb-4" style={{ letterSpacing: "1px", fontSize: "20px" }}>Sign into your account</h3>
+                                    <h3 className="fw-normal mb-2 pb-4" style={{  fontSize: "19px" }}>Sign into your account</h3>
                                     <Formik
                                         initialValues={{ email: '', password: '' }}
                                         validationSchema={LoginSchema}
                                         onSubmit={(values, { setSubmitting }) => {
                                             setIsLoading(true); // Set loading state to true when submitting
-                                            axios.post('https://mernstack-zendesk.onrender.com/auth/login', values, {
+                                            axios.post('http://localhost:5003/auth/login', values, {
                                                 headers: {
                                                     'Content-Type': 'application/json',
                                                 }
@@ -52,10 +53,9 @@ function LoginForm(props) {
                                                     const data = response.data;
                                                     localStorage.setItem('userToken', data.token);
                                                     const decoded = jwt_decode(data.token);
-                                                    setUser({ token: data.token, role: decoded.user.role });
-                                                    
-                                                    // Navigate to the desired route after successful login
-                                                    navigateTo('/login');
+                                                   
+
+                                                    navigateTo('/portal/admindashboard');
                                                 })
                                                 .catch(error => {
                                                     console.error('Error:', error);
@@ -85,18 +85,18 @@ function LoginForm(props) {
                                                     </ErrorMessage>
                                                 </div>
                                                 <div className="pt-1 mb-4">
-                                                    <button className="btn btn-dark btn-lg" type="submit" disabled={isSubmitting || isLoading}>
+                                                    <button className="btn btn-dark btn-lg" style={{borderRadius:"4px",fontSize:"19px", backgroundColor: "#4a1be2" }}  type="submit" disabled={isSubmitting || isLoading}>
                                                         {isLoading ? "Loading..." : "Login"}
                                                     </button>
                                                 </div>
                                             </Form>
                                         )}
                                     </Formik>
-                                    <div style={{ fontSize: "20px" }}>
+                                    <div style={{ fontSize: "19px" }}>
                                         <a className="small text-muted" href="#!">Forgot password?</a>
                                         <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                                             <strong>Don't have an account? </strong>
-                                            <Link to="/registrationform" style={{ color: "#393f81" }}>Register here</Link>
+                                            <Link to="/Adminregister" style={{ color: "#393f81",textDecoration:"underline" }}>Register here</Link>
                                         </p>
                                         <a href="#!" className="small text-muted">Terms of use.</a>
                                         <a href="#!" className="small text-muted">Privacy policy</a>

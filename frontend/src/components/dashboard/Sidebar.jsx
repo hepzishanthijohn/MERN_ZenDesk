@@ -1,12 +1,29 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from '../Context/MemberContext';
-import LoginContext from '../Context/LoginContext';
+import jwt_decode from 'jwt-decode'
+import { useUserContext } from "../main-components/UserContext";
 import './sidebar.css';
 
 function Sidebar() {
-    const userdata = useContext(UserContext);
-    const logindata = useContext(LoginContext);
+    const { user } = useUserContext();
+    const [userdata, setUserData] = useState(null);
+   
+
+    useEffect(() => {
+        const storedUserData = localStorage.getItem('userdata');
+        if (storedUserData) {
+            setUserData(storedUserData); // Set the stored user data directly
+        }
+    }, []);
+    // Retrieve the user token from local storage
+     const userToken = localStorage.getItem('userToken');
+
+    // Decode the token to extract its payload
+     const decodedToken = jwt_decode(userToken);
+
+    // Access the user's role from the decoded payload
+     const userRole = decodedToken.role;
+    
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
 
@@ -23,7 +40,7 @@ function Sidebar() {
             </div>
             <div className="sidebar-content">
             <ul className="list-unstyled components">
-            {logindata.isAdminVisible && (
+            {userRole && userRole === 'admin' &&(
                     <li>
                         <Link to="/portal/admindashboard" style={{textDecoration:"none",color:"black"}}>
                             <i className="fa fa-user-secret fa-2x fa-fw " style={{color:"#404040"}}></i>
@@ -31,7 +48,23 @@ function Sidebar() {
                         </Link>
                     </li>
                 )}
-                {logindata.isAdminVisible && (
+                {userRole && userRole === 'admin'&& (
+                    <li>
+                        <Link to="/portal/studentList" style={{textDecoration:"none",color:"black"}}>
+                            <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040"}}></i>
+                            <span><strong>CreateStudents</strong></span>
+                        </Link>
+                    </li>
+                )}
+                {userRole && userRole === 'admin' && (
+                    <li>
+                        <Link to="/portal/mentorList" style={{textDecoration:"none",color:"black"}}>
+                            <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040"}}></i>
+                            <span><strong>CreateMentors</strong></span>
+                        </Link>
+                    </li>
+                )}
+                {userRole && userRole === 'admin'&&(
                     <li>
                         <Link to="/portal/listmember" style={{textDecoration:"none",color:"black"}}>
                             <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040"}}></i>
@@ -57,12 +90,20 @@ function Sidebar() {
                         <span><strong>Dashboard</strong></span>
                     </Link>
                 </li>
+                {userRole && userRole === 'student' && (
                 <li >
                     <Link to="/portal/task"  style={{textDecoration:"none",color:"black"}}>
                         <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"5px",color:"#404040"}}></i>
                         <span ><strong>Tasks</strong></span>
                     </Link>
-                </li>
+                </li>)}
+                {userRole && userRole === 'student' && (
+                <li >
+                    <Link to="/portal/taskList"  style={{textDecoration:"none",color:"black"}}>
+                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"5px",color:"#404040"}}></i>
+                        <span ><strong>Submitted Tasks</strong></span>
+                    </Link>
+                </li>)}
                 <li>
                     <Link to="/portal/webcode" style={{textDecoration:"none",color:"black"}}>
                         <i className="fa fa-desktop fa-2x fa-fw" style={{ marginRight:"5px",color:"#404040"}}></i>
@@ -106,7 +147,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 
-                {logindata.isAdminVisible && (
+                {userRole && userRole === 'admin' && (
                     <li>
                         <Link to="#" style={{textDecoration:"none",color:"black"}}>
                             <i className="fa fa-cogs fa-2x fa-fw " style={{color:"#404040"}}></i>
@@ -117,7 +158,7 @@ function Sidebar() {
             </ul>
             </div>
             <div className="userinfo">
-                <span className="username">{userdata.username}</span>
+                
                 <button className="btn btn-outline-success btn-sm" onClick={() => navigate(-1)}>Back</button>
                 <Link className="btn btn-outline-success btn-sm" to="/">Logout</Link>
             </div>
