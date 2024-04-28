@@ -11,7 +11,7 @@ const UpdateForm = () => {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        axios.get('http://localhost:5003/student/'+id)
+        axios.get('https://mernstack-zendesk.onrender.com/members/student/'+id)
         .then(result => {console.log(result)
            setName(result.data.name)
            setEmail(result.data.email)
@@ -22,7 +22,7 @@ const UpdateForm = () => {
 
     const Update = (e) =>{
         e.preventDefault();
-        axios.put('http://localhost:5003/student/'+id,{name,email,contact})
+        axios.put('https://mernstack-zendesk.onrender.com/members/student/'+id,{name,email,contact})
         .then(result =>{
             console.log(result)
             navigate('/portal/listmember')

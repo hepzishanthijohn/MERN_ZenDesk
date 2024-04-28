@@ -33,12 +33,12 @@ const QueriesList = () => {
       <div className='position-fixed'>
       <Navbar />
       </div>
-      <h2 className='d-flex justify-content-center'>Task List</h2>
+      <h2 className='d-flex justify-content-center'>Queries List</h2>
       <ul className='d-flex justify-content-center align-items-center flex-column f-20'>
         {queries.map((query,index) => (
           <TaskContainer key={query._id}>
             <div>
-              <h6 className='mt-4'>Task: {index+1}</h6>
+              <h6 className='mt-4'>Query: {index+1}</h6>
               <h3>{query.title}</h3>
               <p>{query.description}</p>
               <Link
