@@ -25,6 +25,7 @@ import StudentList from './pages/studentRelated/StudentList';
 import UpdateStudent from './pages/studentRelated/UpdateStudent';
 import CreateMentor from './pages/mentorRelated/CreateMentor';
 import MentorList from './pages/mentorRelated/MentorList';
+import MentorDashboard from './pages/mentorRelated/MentorDashBoardRelated/MentorDashboard';
 import UpdateMentor from './pages/mentorRelated/UpdateMentor';
 import StudentLoginForm from './pages/studentRelated/StudentLoginForm';
 import MentorLoginForm from './pages/mentorRelated/MentorLoginForm';
@@ -73,6 +74,7 @@ function App() {
           <Route path='/portal' element={<Portal />}>
             <Route path='clientdashboard' element={<ClientDashboard />} />
             <Route path='admindashboard' element={<AdminDashboard />} />
+            <Route path='mentordashboard' element={<MentorDashboard />} />
             <Route path='class' element={<ClassSchedule />} />
             <Route path='task' element={<TaskPage />} />
             <Route path='application' element={<Application />} />

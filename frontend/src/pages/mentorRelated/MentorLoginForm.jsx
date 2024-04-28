@@ -55,7 +55,7 @@ function LoginForm(props) {
                                                    
                                                     
                                                     // Navigate to the desired route after successful login
-                                                    navigateTo('/login');
+                                                    navigateTo('/portal/mentordashboard');
                                                 })
                                                 .catch(error => {
                                                     console.error('Error:', error);

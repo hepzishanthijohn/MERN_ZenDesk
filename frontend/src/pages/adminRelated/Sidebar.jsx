@@ -48,20 +48,7 @@ function Sidebar() {
                         <span><strong>Home</strong></span>
                     </Link>
                 </li>
-                {userRole && userRole === 'admin' &&(
-                <li>
-                    <Link to="/portal/studentqueries" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Student Queries</strong></span>
-                    </Link>
-                </li>)}
-                {userRole && userRole === 'student' &&(
-                <li>
-                    <Link to="/portal/queryFrontPage" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Queries</strong></span>
-                    </Link>
-                </li>)}
+               
             {userRole && userRole === 'admin' &&(
                     <li>
                         <Link to="/portal/admindashboard" style={{textDecoration:"none",color:"black"}}>
@@ -70,12 +57,20 @@ function Sidebar() {
                         </Link>
                     </li>
                 )}
+                {userRole && (userRole === 'admin' || userRole === 'student')&& (
                  <li >
                     <Link to="/portal/clientdashboard" style={{textDecoration:"none",color:"black"}}>
                         <i className="fa fa-th-large fa-2x fa-fw" style={{marginRight:"15px", color:"#404040"}}></i>
                         <span><strong>Student Dashboard</strong></span>
                     </Link>
-                </li>
+                </li>)}
+                {userRole && (userRole === 'admin' || userRole ===  'mentor')&& (
+                <li >
+                    <Link to="/portal/mentordashboard" style={{textDecoration:"none",color:"black"}}>
+                        <i className="fa fa-chalkboard-teacher fa-2x fa-fw" style={{marginRight:"15px", color:"#404040"}}></i>
+                        <span><strong>Mentor Dashboard</strong></span>
+                    </Link>
+                </li>)}
                 {userRole && userRole === 'admin'&& (
                     <li>
                         <Link to="/portal/studentList" style={{textDecoration:"none",color:"black"}}>
@@ -114,7 +109,20 @@ function Sidebar() {
                         <span ><strong>Class</strong></span>
                     </Link>
                 </li>
-                
+                {userRole && userRole === 'admin' &&(
+                <li>
+                    <Link to="/portal/studentqueries" style={{textDecoration:"none",color:"black"}}>
+                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
+                        <span ><strong>Student Queries</strong></span>
+                    </Link>
+                </li>)}
+                {userRole && userRole === 'student' &&(
+                <li>
+                    <Link to="/portal/queryFrontPage" style={{textDecoration:"none",color:"black"}}>
+                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
+                        <span ><strong>Queries</strong></span>
+                    </Link>
+                </li>)}
                 {userRole && userRole === 'admin'&&(
                     <li >
                     <Link to="/portal/createTask"  style={{textDecoration:"none",color:"black"}}>
