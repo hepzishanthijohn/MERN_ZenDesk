@@ -36,8 +36,8 @@ export function CardList() {
     const fetchData = async () => {
       try {
         const taskId=localStorage.getItem('currentTaskId')
-        const currentStudentId = localStorage.getItem('currentStudentId');
-        const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${userid}/tasks/submitted`);
+        const currentStudentid = localStorage.getItem('currentStudentid');
+        const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${currentStudentid}/tasks/submitted`);
         setTasks(response.data);
         
       } catch (error) {

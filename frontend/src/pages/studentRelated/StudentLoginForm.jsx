@@ -51,7 +51,9 @@ function LoginForm(props) {
                                                 .then(response => {
                                                     const data = response.data;
                                                     localStorage.setItem('userToken', data.token);
+                                                    localStorage.setItem("currentStudentid",data.id);
                                                     const decoded = jwt_decode(data.token);
+                                                    localStorage.setItem("currentStudentid",decoded.user.id);
                                                     
                                                     
                                                     // Navigate to the desired route after successful login
