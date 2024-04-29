@@ -102,7 +102,7 @@ router.put('/:id', getStudent, async (req, res) => {
       res.student.email = req.body.email;
     }
     if (req.body.contact != null) {
-      res.student.email = req.body.contact;
+      res.student.contact = req.body.contact;
     }
     // Update other fields as needed
 
