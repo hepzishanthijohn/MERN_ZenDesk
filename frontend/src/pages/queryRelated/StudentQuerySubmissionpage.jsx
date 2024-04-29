@@ -64,10 +64,9 @@ const StudentQuerySubmissionpage = () => {
 
   return (
    <>
-   <div>
-    <Navbar></Navbar>
-   </div>
-    <div>
+   
+    <div className='d-flex'>
+    <div className='w-100 bg-white ml-5' style={{marginTop:"3rem"}}>
       
       {submitted && (
         <div >
@@ -79,7 +78,7 @@ const StudentQuerySubmissionpage = () => {
       <TaskContainer>
       <div  style={{ fontSize: "18px", color: "black" }}>
         <div>
-          <h5 className='fs-4 mb-5'>Topic</h5>
+          <h5 className='fs-4 mb-5 mt-5'>Topic</h5>
           <div className="mr-5 ml-5 mb-5">
             <label htmlFor="category">Category</label><br />
             <select className="form-control w-100 fs-5" name="category" onChange={handleChange}>
@@ -137,6 +136,7 @@ const StudentQuerySubmissionpage = () => {
         <button className="btn btn-success" onClick={() => navigate(-1)}>Back</button>
       </div>
     </div>
+    </div>
    </>
   );
 };
@@ -145,7 +145,7 @@ export default StudentQuerySubmissionpage;
 
 const TaskContainer= styled.div`
     
-    width:60%;
+    width:70%;
     fontsize: 20px;
     background: #ffffff;
     border: 1px solid #dedede;

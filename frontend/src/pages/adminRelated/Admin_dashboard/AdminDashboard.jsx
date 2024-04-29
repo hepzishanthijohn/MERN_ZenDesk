@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AdminBarChart } from './AdminBarChart';
 import  {AdminPieChart} from './AdminPieChart';
 import { AdminCardList } from './AdminCardList';
-import Navbar from '../../../components/sub-components/Navbar/Navbar'
+
 import axios from 'axios';
 
 
@@ -55,13 +55,13 @@ const AdminDashboard = () => {
     
       <>
       <div >
-      <Navbar></Navbar>
+      
       </div>
         <div className='mt-2'>
             
             <div className='' style={{fontSize:"22px"}}>
          <div className="container">
-            <div className="d-flex align-items-center justify-content-between " style={{marginTop:"2rem"}}>
+            <div className="d-flex align-items-center justify-content-between " style={{marginTop:"6rem"}}>
                 <h1 className="h3 mb-5 text-gray-800" >Live Dashboard</h1>
             </div>
             <AdminCardList />

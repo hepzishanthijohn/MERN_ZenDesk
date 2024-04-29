@@ -8,13 +8,13 @@ import Navbar from '../../components/sub-components/Navbar/Navbar'
 function ClientDashboard() {
     return (
         <>
-        <Navbar></Navbar>
+        
         <div>
            
            <div className="container" style={{fontSize:"22px"}}>
            
-           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"1rem"}}>
-               <h1 className="h3 mb-0 text-gray-800" >Dashboard</h1>
+           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"6rem"}}>
+               <h1 className="h3 mt-o text-gray-800" >Dashboard</h1>
            </div>
            <CardList />
            <div className="row">

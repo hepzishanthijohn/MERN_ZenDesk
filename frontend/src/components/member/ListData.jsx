@@ -9,7 +9,7 @@ const ListData = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   const fetchData = async () => {
     try {
@@ -36,10 +36,11 @@ const ListData = () => {
 
   return (
         <div>
-          <Navbar/>
-          <h1>Members List</h1>
-          <div className="d-flex vw-80 vh-80 bg-white justify-content-center align-items-center">
-        <div className="vh-100 bg-white rounded p-2" >
+     
+     <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
+        <div className="w-50 bg-white rounded p-4" style={{marginTop:"3rem"}} >
+          <h1 className='d-flex justify-content-center mt-5'>Members List</h1>
+          
             <Link to="/portal/createmember" className="btn btn-success">Add +</Link>
             
             <table className='table' style={{fontSize:"18px"}}>

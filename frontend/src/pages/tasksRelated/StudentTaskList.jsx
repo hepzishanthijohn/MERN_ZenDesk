@@ -61,10 +61,12 @@ const StudentTaskList = () => {
 
   return (
     <div>
-      <Navbar />
-      <h1 className='d-flex justify-content-center'>Student Task Submission</h1>
+      
+      
       <div className="d-flex vw-80 vh-80 justify-content-center align-items-center">
-        <div className="w-50 bg-white rounded p-4">
+        
+        <div className="w-50 bg-white rounded p-4" style={{marginTop:"5rem"}}>
+        <h1 className='d-flex justify-content-center mb-5'>Student Task Submission</h1>
           <table className='table' style={{ fontSize: "18px" }}>
             <thead>
               <tr>

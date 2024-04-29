@@ -33,7 +33,7 @@ const UpdateStudent = () => {
   return (
     <>
       <div>
-        <Navbar></Navbar>
+        
       <div className="d-flex vh-100  justify-content-center align-items-center">
                 <div className="w-50 bg-white text-dark rounded p-3">
                     <form onSubmit={Update} style={{ fontSize: "19px" }}>

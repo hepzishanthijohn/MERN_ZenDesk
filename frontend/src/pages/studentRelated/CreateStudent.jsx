@@ -37,11 +37,11 @@ const CreateStudent = () => {
 
   return (
     <div>
-      <Navbar />
+      
       <div className="d-flex vh-100 justify-content-center align-items-center ">
         <div className="w-50 bg-white text-dark rounded p-3 mt-5">
           <div className="container" style={{ fontSize: "15px", marginTop: "2rem" }}>
-            <h2>Create Data</h2>
+            <h2>Create Student</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Name:</label>

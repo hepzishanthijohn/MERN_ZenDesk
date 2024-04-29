@@ -42,11 +42,10 @@ const CreateMentor = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="d-flex vh-100 justify-content-center align-items-center">
-        <div className="w-50 bg-white text-dark rounded p-3">
-          <div className="container" style={{ fontSize: "15px", marginTop: "-15rem" }}>
-            <h2>Create Data</h2>
+      <div className="d-flex vh-100 justify-content-center align-items-center ">
+        <div className="w-50 bg-white text-dark rounded p-3 mt-5">
+          <div className="container" style={{ fontSize: "15px", marginTop: "2rem" }}>
+            <h2>Create Mentor</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Name:</label>
@@ -83,34 +82,3 @@ const CreateMentor = () => {
 };
 
 export default CreateMentor;
-{/* <div className="form-group">
-                <label>Course:</label>
-                <select name="courseId" value={formData.courseId} onChange={handleChange} className="form-control">
-                  <option value="">Select Course</option>
-                  {courses.map(course => (
-                    <option key={course._id} value={course._id}>{course._id}</option>
-                  ))}
-                </select>
-              </div>
-              
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  const fetchCourses = async () => {
-    try {
-      const response = await axios.get('https://mernstack-zendesk.onrender.com/course');
-      setCourses(response.data);
-    } catch (error) {
-      console.error('Error fetching courses:', error);
-    }
-  };
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    if (name === "courseId") {
-      setFormData({ ...formData, courseId: value });
-    } else {
-      setFormData({ ...formData,[e.target.name] : e.target.value });
-    }
-  }; */}

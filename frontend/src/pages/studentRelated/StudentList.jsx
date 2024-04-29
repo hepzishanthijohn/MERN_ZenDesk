@@ -12,7 +12,7 @@ const StudentList = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   const fetchData = async () => {
     try {
@@ -63,13 +63,14 @@ const StudentList = () => {
   return (
 
     <>
-    <Navbar />
+   
     <div>
       
 
       <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
-        <div className="w-50 bg-white rounded p-4" >
+        <div className="w-50 bg-white rounded p-4" style={{marginTop:"3rem"}} >
           <h1 className='d-flex justify-content-center mt-5'>Student List</h1>
+          
           <Link to="/portal/createStudent" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add +</Link>
           <table className='table' style={{ fontSize: "18px" }}>
             <thead>

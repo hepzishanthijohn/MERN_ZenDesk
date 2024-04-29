@@ -61,9 +61,9 @@ const QueryResolvedPage = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <h1 className='d-flex ' style={{ marginLeft: "10rem" }}>Query Response Page</h1>
+    <div style={{ marginLeft: "10rem",marginTop:"15rem" }}>
+      
+      <h1 className='d-flex ' style={{ marginLeft: "10rem",marginTop:"5rem" }}>Query Response Page</h1>
       <TaskContainer>
         {submissionSuccess && <SuccessMessage>Response submitted successfully!</SuccessMessage>} {/* Render success message */}
         {query ? (

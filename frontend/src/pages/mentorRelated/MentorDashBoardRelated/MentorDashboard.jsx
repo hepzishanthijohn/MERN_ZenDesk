@@ -8,12 +8,12 @@ import Navbar from '../../../components/sub-components/Navbar/Navbar'
 function MentorDashboard() {
     return (
         <>
-        <Navbar></Navbar>
+       
         <div>
            
            <div className="container" style={{fontSize:"22px"}}>
            
-           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"1rem"}}>
+           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"6rem"}}>
                <h1 className="h3 mb-0 text-gray-800" >Dashboard</h1>
            </div>
            <CardList />

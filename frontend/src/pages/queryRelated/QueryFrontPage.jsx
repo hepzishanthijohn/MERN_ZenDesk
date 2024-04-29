@@ -74,10 +74,10 @@ const QueryPage = () => {
 
   return (
     <>
-    <Navbar></Navbar>
+   
     <div >
-      <div>
-      <div className='ml-5'>
+      <div className='d-flex'>
+      <div className='w-100 bg-white ml-5' style={{marginTop:"6rem"}}>
       <h1 className='d-flex justify-content-center'>My Queries</h1>
     <hr />
       <button id='createQueryBtn' style={{height:"5rem",width:"16rem"}} onClick={() => navigate(`/portal/studentquerysubmissionpage`)}><strong>+ create Query</strong></button>

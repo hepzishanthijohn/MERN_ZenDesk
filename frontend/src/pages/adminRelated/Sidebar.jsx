@@ -1,5 +1,6 @@
 import React, { useContext, useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../../components/sub-components/Navbar/Navbar';
 import jwt_decode from 'jwt-decode'
 import { useUserContext } from "../../components/main-components/UserContext";
 import './sidebar.css';
@@ -36,6 +37,10 @@ function Sidebar() {
 
 
     return (
+        <>
+        <div className='position-fixed w-100' style={{marginTop:"0rem",marginBottom:"3rem"}}>
+            <Navbar></Navbar>
+        </div>
         <div className={`sidebar ${show ? 'active' : ''}`}>
             <div className="sidebar-header">
                 <h3>ZenClass</h3>
@@ -131,12 +136,13 @@ function Sidebar() {
                     </Link>
                 </li>
                 )}
+                {userRole && userRole === 'student'&&(
                 <li >
                     <Link to="/portal/taskList"  style={{textDecoration:"none",color:"black"}}>
                         <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
                         <span ><strong>Tasks</strong></span>
                     </Link>
-                </li>
+                </li>)}
                 {userRole && userRole === 'admin'&&(
                     <li >
                     <Link to="/portal/studentTaskList"  style={{textDecoration:"none",color:"black"}}>
@@ -214,6 +220,7 @@ function Sidebar() {
                 <i className={`fa fa-chevron-${show ? 'left' : 'right'}`}></i>
             </button>
         </div>
+        </>
     );
 }
 

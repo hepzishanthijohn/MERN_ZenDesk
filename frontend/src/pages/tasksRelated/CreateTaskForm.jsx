@@ -31,11 +31,13 @@ const CreateTaskForm = () => {
 
   return (
     <>
-    <Navbar></Navbar>
-    <div>
-      <h2 style={{}} className='d-flex justify-content-center'>Create Task</h2>
-      
-        <div>
+    
+     
+    <div className="d-flex justify-content-center align-items-center ">
+        <div className="w-100 bg-white d-flex justify-content-center align- flex-column " style={{marginTop:"5rem"}} >
+          <h1 className='mt-5 mb-4' style={{marginLeft:"4rem"}}>
+            Create Task
+          </h1>
           <form onSubmit={handleSubmit} >
           <TaskContainer>
             <div className="form-group">
@@ -70,6 +72,6 @@ const TaskContainer = styled.div`
     box-sizing: border-box;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
     border-radius: 8px;
-    margin: 80px 0 10px 80px;
+    margin-left: 7rem;
     padding: 50px 0 25px 25px;
 `

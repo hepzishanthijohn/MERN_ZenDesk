@@ -30,9 +30,7 @@ const QueriesList = () => {
 
   return (
     <div>
-      <div className='position-fixed'>
-      <Navbar />
-      </div>
+      
       <h2 className='d-flex justify-content-center'>Queries List</h2>
       <ul className='d-flex justify-content-center align-items-center flex-column f-20'>
         {queries.map((query,index) => (

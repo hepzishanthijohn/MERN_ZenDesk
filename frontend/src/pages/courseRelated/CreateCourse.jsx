@@ -33,7 +33,7 @@ const CreateCourse = () => {
       <Navbar />
       <div className="d-flex vh-100 justify-content-center align-items-center">
         <div className="w-50 bg-white text-dark rounded p-3">
-          <div className="container" style={{ fontSize: '15px', marginTop: '-15rem' }}>
+          <div className="container" style={{ fontSize: '15px', marginTop: '-10rem' }}>
             <h2>Create Data</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">

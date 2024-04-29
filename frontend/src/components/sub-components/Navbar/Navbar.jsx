@@ -30,7 +30,7 @@ function Navbar() {
   
   
   return (
-    <BootstrapNavbar style={{ backgroundColor: "#e2c9ff",width:"100%" }} expand="lg">
+    <BootstrapNavbar style={{ backgroundColor: "#e2c9ff",width:"100%",marginBottom:"8rem",position:"fixed" }} expand="lg">
       <Nav className="ml-auto">
         <Nav.Link disabled className="user-icon">
           <span style={{ color: "black", fontSize: "19px" }}><span style={{fontSize:"25px"}}>{username}</span></span>

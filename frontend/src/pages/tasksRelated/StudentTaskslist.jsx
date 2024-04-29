@@ -20,7 +20,7 @@ const StudentTaskslist = () => {
     };
 
     fetchTasks();
-  }, [studentId]);
+  }, [tasks]);
 
   // Function to handle storing task ID in local storage
   const handleViewTask = (taskId, taskTitle) => {
@@ -29,10 +29,10 @@ const StudentTaskslist = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <h2 className='d-flex justify-content-center'>Task List</h2>
-      <ul className='d-flex justify-content-center align-items-center flex-column f-20'>
+    <div className="d-flex vw-80 vh-80 justify-content-center align-items-center">
+        
+    <div className=" bg-white rounded p-4" style={{marginTop:"5rem"}}>
+    <h1 className='d-flex justify-content-center mb-5'> Task List</h1>      <ul className='d-flex justify-content-center align-items-center flex-column '>
         {tasks.map((task,index) => (
           <TaskContainer key={task._id}>
             <div>
@@ -45,13 +45,15 @@ const StudentTaskslist = () => {
         ))}
       </ul>
     </div>
+    </div>
+    
   );
 };
 
 export default StudentTaskslist;
 const TaskContainer= styled.div`
     
-    width:50%;
+    width:100%;
     background: #ffffff;
     border: 1px solid #dedede;
     box-sizing: border-box;

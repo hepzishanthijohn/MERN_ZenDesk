@@ -59,7 +59,10 @@ const StudentTaskListPage = () => {
   return (
 
     <>
-    <Navbar></Navbar>
+    <div className="d-flex">
+        <div className="w-100 bg-white text-dark rounded p-3 mt-5">
+          <div className="container" style={{ fontSize: "15px", marginTop: "2rem" }}>
+            
      <div style={{marginLeft:"4rem"}}>
       <h1>Student Task List</h1>
       <ul>
@@ -102,7 +105,9 @@ const StudentTaskListPage = () => {
         <button className="btn btn-success" onClick={() => navigate(-1)}>Back</button>
       </div>
     </div>
- 
+ </div>
+ </div>
+ </div>
     </>
     );
 };

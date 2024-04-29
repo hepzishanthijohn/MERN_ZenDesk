@@ -46,7 +46,7 @@ const TaskDetails = () => {
   const fetchData = async () => {
     try {
       const taskIdFromStorage = localStorage.getItem('currentTaskId');
-      const response = await axios.get(`http://localhost:5003/tasks/${taskIdFromStorage}`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/tasks/${taskIdFromStorage}`);
       setTask(response.data);
     } catch (error) {
       console.log('Error fetching task details:', error);
@@ -68,7 +68,7 @@ const TaskDetails = () => {
       };
       // Make an API call to submit the task
       const taskIdFromStorage = localStorage.getItem('currentTaskId');
-      await axios.post(`http://localhost:5003/taskSubmission/${currentStudentId}/tasks/${taskIdFromStorage}/submit`, submissionData);
+      await axios.post(`https://mernstack-zendesk.onrender.com/taskSubmission/${userid}/tasks/${taskIdFromStorage}/submit`, submissionData);
       navigate('/portal/submitTaskForm')
       // Optionally, you can display a success message or redirect to another page
     } catch (error) {

@@ -60,9 +60,15 @@ const QueryResponse = () => {
 
   return (
     <div>
-      <Navbar />
-      <h1 className='d-flex ' style={{ marginLeft: "10rem" }}>Query Response Page</h1>
-      <TaskContainer>
+      
+      
+      <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
+        <div className="w-70 bg-white " style={{marginTop:"5rem"}} >
+          <h1 className='d-flex justify-content-center mt-5'>
+            Query Response Page
+          </h1>
+          
+        <TaskContainer>
         {submissionSuccess && <SuccessMessage>Response submitted successfully!</SuccessMessage>} {/* Render success message */}
         {query ? (
           <div style={{ fontSize: "19px" }}>
@@ -91,6 +97,8 @@ const QueryResponse = () => {
           <p>Loading...</p>
         )}
       </TaskContainer>
+      </div>
+      </div>
     </div>
   );
 };
@@ -98,7 +106,7 @@ const QueryResponse = () => {
 export default QueryResponse;
 
 const TaskContainer = styled.div`
-  width:70%;
+  width:100%;
   fontsize: 20px;
   background: #ffffff;
   border: 1px solid #dedede;

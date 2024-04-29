@@ -38,7 +38,7 @@ const SubmitTaskForm = () => {
     try {
       const taskId=localStorage.getItem('currentTaskId')
       const currentStudentId = localStorage.getItem('currentStudentId');
-      const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${currentStudentId}/tasks/submitted`);
+      const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${userid}/tasks/submitted`);
       setTasks(response.data);
       
     } catch (error) {
@@ -50,9 +50,10 @@ const SubmitTaskForm = () => {
 
   return (
     <>
-    <Navbar></Navbar>
-    <div>
-      <h1>Submitted Task List</h1>
+   <div className='d-flex'>
+      <div className='w-100 bg-white ml-5' style={{marginTop:"6rem"}}>
+      <h1 className='d-flex justify-content-center'>Submitted task</h1>
+   
       <ul>
         {tasks.map(task => (
           <TaskContainer key={task._id}>
@@ -79,7 +80,7 @@ const SubmitTaskForm = () => {
         <button className="btn btn-success" onClick={() => navigate(-1)}>Back</button>
       </div>
     </div>
-
+</div>
     </>  );
 };
 

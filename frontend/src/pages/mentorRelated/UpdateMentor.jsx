@@ -33,10 +33,9 @@ const UpdateMentor = () => {
     }
   return (
     <>
-    <Navbar></Navbar>
-      <div className="d-flex vh-100  justify-content-center align-items-center">
-                <div className="w-50 bg-white text-dark rounded p-3" style={{marginTop:"-22rem"}}>
-                    <form onSubmit={Update} style={{ fontSize: "19px" }}>
+    <div className="d-flex vh-100  justify-content-center align-items-center">
+                <div className="w-50 bg-white text-dark rounded p-3">
+                     <form onSubmit={Update} style={{ fontSize: "19px" }}>
                         <h2>Update User</h2>
                         <div className="mb-2">
                             <label htmlFor="name">Name</label>

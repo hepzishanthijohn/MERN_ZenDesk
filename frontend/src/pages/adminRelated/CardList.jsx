@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import jwt_decode from 'jwt-decode'
 import axios from 'axios';
 import { faBook, faTasks, faBookDead, faBookReader, faCalendar, faClipboardList, faComments, faDollar, faRupee, faUser, faUserAlt, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Card } from './Card';
@@ -7,24 +8,44 @@ import { Card } from './Card';
 /*cards datalist*/
 export function CardList() {
     const [tasks, setTasks] = useState([]);
+    const [userid,setUserid] = useState([])
 
     useEffect(() => {
-        fetchData();
-      }, [tasks]); // Refresh the data whenever tasks change
-    
-      const fetchData = async () => {
+      const userToken = localStorage.getItem('userToken');
+      if (userToken) {
         try {
-          const taskId=localStorage.getItem('currentTaskId')
-          const currentStudentId = localStorage.getItem('currentStudentId');
-          const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${currentStudentId}/tasks/submitted`);
-          setTasks(response.data);
+          const decodedToken = jwt_decode(userToken);
+          const userName = decodedToken.user.name;
+          const userId = decodedToken.user.id;
+          setUserid(userId);
           
         } catch (error) {
-          console.log('Error fetching tasks:', error);
+          console.error('Error decoding token:', error);
         }
-      };
+      } else {
+        console.error('Admin token not found in local storage');
+      }
+    }, [userid]); // Empty dependency array ensures the effect runs only once on component mount
+  
 
-      const [tasklist, setTaskslist] = useState([]);
+   
+    useEffect(() => {
+      fetchData();
+    }, [tasks]); // Refresh the data whenever tasks change
+  
+    const fetchData = async () => {
+      try {
+        const taskId=localStorage.getItem('currentTaskId')
+        const currentStudentId = localStorage.getItem('currentStudentId');
+        const response = await axios.get(`https://mernstack-zendesk.onrender.com/taskSubmission/${userid}/tasks/submitted`);
+        setTasks(response.data);
+        
+      } catch (error) {
+        console.log('Error fetching tasks:', error);
+      }
+    };
+    
+  const [tasklist, setTaskslist] = useState([]);
 
 
   useEffect(() => {

@@ -30,14 +30,11 @@ const StudentQueryListPage = () => {
 
   return (
     <div>
-      <div className='position-fixed w-100' style={{marginTop:"-5rem"}}>
-      <Navbar />
-      </div>
       
       <div>
 
-      <ul className='d-flex justify-content-center align-items-center flex-column fs-6' style={{marginTop:"5rem"}}>
-      <h2 className='d-flex justify-content-center'>User Queries</h2>
+      <ul className='d-flex justify-content-center align-items-center flex-column fs-6' >
+      <h2 className='d-flex justify-content-center mb-4' style={{marginTop:"9rem"}}>Student Queries</h2>
         {queries.map((query,index) => (
           <TaskContainer key={query._id}>
             <div>
@@ -63,7 +60,7 @@ const StudentQueryListPage = () => {
 export default StudentQueryListPage;
 const TaskContainer= styled.div`
     
-    width:50%;
+    width:70%;
     background: #ffffff;
     border: 1px solid #dedede;
     box-sizing: border-box;
