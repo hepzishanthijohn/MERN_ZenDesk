@@ -38,7 +38,7 @@ const StudentQueryListPage = () => {
         {queries.map((query,index) => (
           <TaskContainer key={query._id}>
             <div>
-              <h6 className='mt-4'>Task: {index+1}</h6>
+              <h6 className='mt-4'>Query: {index+1}</h6>
               <h3>{query.title}</h3>
               <p>{query.description}</p>
               <Link
