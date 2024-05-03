@@ -36,7 +36,6 @@ import PortfolioSubmission from './components/sub-components/other-elements/Port
 import Webcode from './components/sub-components/other-elements/Webcode';
 import BlogPage from './components/main-components/blogpage/BlogPage'
 import Home from './components/main-components/Homepage/Home';
-import TaskPage from './components/sub-components/taskPage/TaskPage';
 import { UserProvider } from './components/main-components/UserContext';
 import Landing from './pages/Landing'
 import Certificate from './components/sub-components/other-elements/Certificate';
@@ -76,7 +75,7 @@ function App() {
             <Route path='admindashboard' element={<AdminDashboard />} />
             <Route path='mentordashboard' element={<MentorDashboard />} />
             <Route path='class' element={<ClassSchedule />} />
-            <Route path='task' element={<TaskPage />} />
+            
             <Route path='application' element={<Application />} />
             <Route path='capstone' element={<Capstone />} />
             <Route path='interviewtask' element={<InterviewTasks />} />

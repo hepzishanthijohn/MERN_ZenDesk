@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/sub-components/Navbar/Navbar';
 
 const CreateStudent = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '', contact: '', course: '' });
@@ -36,40 +35,45 @@ const CreateStudent = () => {
   };
 
   return (
-    <div>
-      
-      <div className="d-flex vh-100 justify-content-center align-items-center ">
-        <div className="w-50 bg-white text-dark rounded p-3 mt-5">
-          <div className="container" style={{ fontSize: "15px", marginTop: "2rem" }}>
-            <h2>Create Student</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Name:</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Password:</label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Contact:</label>
-                <input type="number" name="contact" value={formData.contact} onChange={handleChange} className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Course:</label>
-                <select name="course" value={formData.course} onChange={handleChange} className="form-control">
-                  <option value="">Select Course</option>
-                  {courses.map(course => (
-                    <option key={course._id} value={course.courseName}>{course.courseName}</option>
-                  ))}
-                </select>
-              </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+    <div className="container " style={{marginTop:"7rem"}}>
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header bg-primary text-white">
+              <h2 className="text-center mb-2">Create Student</h2>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input type="password" name="password" value={formData.password} onChange={handleChange} className="form-control" />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Contact</label>
+                  <input type="number" name="contact" value={formData.contact} onChange={handleChange} className="form-control" />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Course</label>
+                  <select name="course" value={formData.course} onChange={handleChange} className="form-select">
+                    <option value="">Select Course</option>
+                    {courses.map(course => (
+                      <option key={course._id} value={course.courseName}>{course.courseName}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -8,15 +8,14 @@ import ReactPaginate from 'react-paginate';
 
 const StudentTaskList = () => {
   const [data, setData] = useState([]);
-  const [tasks, setTasks] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const studentsPerPage = 5; // Number of students per page
+  const studentsPerPage = 10; // Number of students per page
   const pagesVisited = pageNumber * studentsPerPage;
   const [currentStudentId, setCurrentStudentId] = useState(null);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
 
   const fetchData = async () => {
     try {
@@ -43,8 +42,7 @@ const StudentTaskList = () => {
             <Link
               to={`/portal/studentTaskListPage/${student._id}`}
               onClick={() => handleViewStudent(student._id)} // Store the student ID in local storage
-              className="btn btn-primary "
-              style={{ marginLeft: "30px" }}
+              className="btn btn-primary"
             >
               View
             </Link>
@@ -60,19 +58,16 @@ const StudentTaskList = () => {
   };
 
   return (
-    <div>
-      
-      
-      <div className="d-flex vw-80 vh-80 justify-content-center align-items-center">
-        
-        <div className="w-50 bg-white rounded p-4" style={{marginTop:"5rem"}}>
-        <h1 className='d-flex justify-content-center mb-5'>Student Task Submission</h1>
-          <table className='table' style={{ fontSize: "18px" }}>
-            <thead>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-8">
+          <h1 className="text-center mb-5">Student Task Submission</h1>
+          <table className="table table-bordered table-striped">
+            <thead className="thead-dark">
               <tr>
                 <th>ID</th>
                 <th>Student Name</th>
-                <th>task Submission</th>
+                <th>Task Submission</th>
               </tr>
             </thead>
             <tbody>
@@ -84,7 +79,7 @@ const StudentTaskList = () => {
             nextLabel={"Next"}
             pageCount={pageCount}
             onPageChange={changePage}
-            containerClassName={"pagination"}
+            containerClassName={"pagination justify-content-center"}
             activeClassName={"active"}
           />
         </div>

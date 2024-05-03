@@ -1,14 +1,34 @@
 import React, { useContext, useState,useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/sub-components/Navbar/Navbar';
 import jwt_decode from 'jwt-decode'
+import { FaHome } from 'react-icons/fa';
+import { MdGroupAdd } from "react-icons/md";
+import { HiMiniUserGroup } from "react-icons/hi2";
+import {Button, Layout} from 'antd';
+import {Menu} from 'antd';
+import { AiOutlineFileDone } from "react-icons/ai";
+import { MdQuestionAnswer } from "react-icons/md";
+import { GrTask } from "react-icons/gr";
+import { FaClipboardList } from "react-icons/fa";
+import { GoTasklist } from "react-icons/go";
+import { FaTasks } from "react-icons/fa";
+import { SiGoogleclassroom } from "react-icons/si";
+import { PiCertificateFill } from "react-icons/pi";
+import { BsPatchQuestion } from "react-icons/bs";
+import { MdOutlineSettingsSuggest } from "react-icons/md";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { MenuUnfoldOutlined, MenuFoldOutlined,} from '@ant-design/icons'
+import { SiCoursera } from "react-icons/si";
+import {HomeOutlined, AppstoreOutlined,AreaChartOutlined,PayCircleOutlined, SettingOutlined} from '@ant-design/icons'
 import { useUserContext } from "../../components/main-components/UserContext";
 import './sidebar.css';
 
 function Sidebar() {
-    
+    const [collapsed, setCollapsed] = useState(false);
     const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
+    const {Header, Sider} = Layout;
 
     useEffect(() => {
         const userToken = localStorage.getItem('userToken');
@@ -30,196 +50,206 @@ function Sidebar() {
     
     const [show, setShow] = useState(false);
 
-    const toggleSidebar = () => {
-        setShow(!show);
-    };
-
+    
 
 
     return (
         <>
-        <div className='position-fixed w-100' style={{marginTop:"0rem",marginBottom:"3rem"}}>
+        <div className='position-fixed w-100' style={{marginTop:"0px",marginBottom:"3rem",zIndex:"999"}}>
             <Navbar></Navbar>
         </div>
-        <div className={`sidebar ${show ? 'active' : ''}`}>
+        <Sider collapsed={collapsed} 
+        collapsible
+        trigger= {null}
+        
+         className='sidebar'>
             <div className="sidebar-header">
-                <h3>ZenClass</h3>
+                <p>Zen <br/> Clone</p> 
             </div>
             <div className="sidebar-content">
-            <ul className="list-unstyled components">
-            <li>
-                    <Link to="/" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-home fa-2x fa-fw" style={{marginRight:"15px", color:"#404040"}}></i>
-                        <span><strong>Home</strong></span>
+            <Menu className="menu-bar">
+            
+                    <Link to="/" style={{textDecoration:"none"}}>
+                        <Menu.Item  
+                        key='Home' className='menubar-items '  icon={<FaHome style={{fontSize:"20px"}}/>}> Home</Menu.Item>
+                        
                     </Link>
-                </li>
+              
                
             {userRole && userRole === 'admin' &&(
-                    <li>
-                        <Link to="/portal/admindashboard" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-user-secret fa-2x fa-fw " style={{color:"#404040",marginRight:"15px"}}></i>
-                            <span><strong>Admin Dashboard</strong></span>
+                    
+                        <Link to="/portal/admindashboard" style={{textDecoration:"none"}}>
+                            <Menu.Item 
+                        key='AdminDashboard' className='menubar-items ' icon={<AppstoreOutlined style={{fontSize:"20px"}}/>}> AdminDashboard</Menu.Item>
                         </Link>
-                    </li>
+                    
                 )}
                 {userRole && (userRole === 'admin' || userRole === 'student')&& (
-                 <li >
-                    <Link to="/portal/clientdashboard" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-th-large fa-2x fa-fw" style={{marginRight:"15px", color:"#404040"}}></i>
-                        <span><strong>Student Dashboard</strong></span>
+                 
+                    <Link to="/portal/clientdashboard" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='StudentDashboard' className='menubar-items ' icon={<AppstoreOutlined style={{fontSize:"20px"}}/>}> StudentDashboard</Menu.Item>
+                        
                     </Link>
-                </li>)}
+               )}
                 {userRole && (userRole === 'admin' || userRole ===  'mentor')&& (
-                <li >
-                    <Link to="/portal/mentordashboard" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-chalkboard-teacher fa-2x fa-fw" style={{marginRight:"15px", color:"#404040"}}></i>
-                        <span><strong>Mentor Dashboard</strong></span>
-                    </Link>
-                </li>)}
+                
+                    <Link to="/portal/mentordashboard" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='MentorDashboard' className='menubar-items ' icon={<AppstoreOutlined style={{fontSize:"20px"}}/>}> Mentor Dashboard</Menu.Item>
+                        </Link>
+               )}
                 {userRole && userRole === 'admin'&& (
-                    <li>
-                        <Link to="/portal/studentList" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040",marginRight:"15px"}}></i>
-                            <span><strong>Add Students</strong></span>
+                    
+                        <Link to="/portal/studentList" style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Add Students' className='menubar-items ' icon={<MdGroupAdd style={{fontSize:"20px"}}/>}> Add Students</Menu.Item>
                         </Link>
-                    </li>
+                   
                 )}
                 {userRole && userRole === 'admin' && (
-                    <li>
-                        <Link to="/portal/mentorList" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040" ,marginRight:"15px"}}></i>
-                            <span><strong>Add Mentors</strong></span>
-                        </Link>
-                    </li>
+                    
+                        <Link to="/portal/mentorList" style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Add Mentors' className='menubar-items ' icon={<MdGroupAdd style={{fontSize:"20px"}}/>}> Add Mentors</Menu.Item>
+                         </Link>
+                   
                 )}
                 {userRole && userRole === 'admin' && (
-                    <li>
-                        <Link to="/portal/courseList" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-clipboard-list fa-2x fa-fw" style={{color:"#404040",marginRight:"15px"}}></i>
-                            <span><strong>Add Courses</strong></span>
-                        </Link>
-                    </li>
+                    
+                        <Link to="/portal/courseList" style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Add Courses' className='menubar-items ' icon={<SiCoursera style={{fontSize:"20px"}}/>}> Add Courses</Menu.Item>
+                         </Link>
+                   
                 )}
                 {userRole && userRole === 'admin'&&(
-                    <li>
-                        <Link to="/portal/listmember" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-users fa-2x fa-fw " style={{color:"#404040",marginRight:"15px"}}></i>
-                            <span><strong>Members</strong></span>
-                        </Link>
-                    </li>
+                    
+                        <Link to="/portal/listmember" style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Members' className='menubar-items ' icon={<FaPeopleGroup style={{fontSize:"20px"}}/>}> Members</Menu.Item>
+                       </Link>
+                   
                 )}
-                <li>
-                    <Link to="/portal/class" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-chalkboard-teacher fa-2x fa-fw" style={{ marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Class</strong></span>
-                    </Link>
-                </li>
+                
+                    <Link to="/portal/class" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='classes' className='menubar-items ' icon={<SiGoogleclassroom style={{fontSize:"20px"}}/>}> class</Menu.Item>
+                       </Link>
+               
                 {userRole && userRole === 'admin' &&(
-                <li>
-                    <Link to="/portal/studentqueries" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Student Queries</strong></span>
-                    </Link>
-                </li>)}
+                
+                    <Link to="/portal/studentqueries" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Student Queries' className='menubar-items ' icon={<BsPatchQuestion style={{fontSize:"20px"}}/>}> Student Queries</Menu.Item>
+                      </Link>
+               )}
                 {userRole && userRole === 'student' &&(
-                <li>
-                    <Link to="/portal/queryFrontPage" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-question-circle fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Queries</strong></span>
-                    </Link>
-                </li>)}
+                
+                    <Link to="/portal/queryFrontPage" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Queries' className='menubar-items ' icon={<MdQuestionAnswer style={{fontSize:"20px"}}/>}> Queries</Menu.Item>
+                      </Link>
+               )}
                 {userRole && userRole === 'admin'&&(
-                    <li >
-                    <Link to="/portal/createTask"  style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Add Task</strong></span>
-                    </Link>
-                </li>
+                    
+                    <Link to="/portal/createTask"  style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Add Task' className='menubar-items ' icon={<FaTasks style={{fontSize:"20px"}}/>}> Add Task</Menu.Item>
+                      </Link>
+               
                 )}
                 {userRole && userRole === 'student'&&(
-                <li >
-                    <Link to="/portal/taskList"  style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Tasks</strong></span>
-                    </Link>
-                </li>)}
+                
+                    <Link to="/portal/taskList"  style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='TaskList' className='menubar-items ' icon={<FaClipboardList style={{fontSize:"20px"}}/>}>Tasks List</Menu.Item>
+                      </Link>
+               )}
                 {userRole && userRole === 'admin'&&(
-                    <li >
-                    <Link to="/portal/studentTaskList"  style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Student TaskList</strong></span>
+                    
+                    <Link to="/portal/studentTaskList"  style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Student TasksList' className='menubar-items ' icon={<GrTask style={{fontSize:"20px"}}/>}> Student TasksList</Menu.Item>
                     </Link>
-                </li>
+               
                 )}
                 
                 {userRole && userRole ==='student'&&(
-                <li >
-                    <Link to="/portal/submitTaskForm"  style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Submitted Tasks</strong></span>
+                
+                    <Link to="/portal/submitTaskForm"  style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Submitted Tasks' className='menubar-items ' icon={<GrTask style={{fontSize:"20px"}}/>}> Submitted Tasks</Menu.Item>
                     </Link>
-                </li>
+               
                   )}
                 
                
                 
-                <li>
-                    <Link to="/portal/webcode" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-desktop fa-2x fa-fw" style={{ marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Webcode</strong></span>
-                    </Link>
-                </li>
-                <li >
-                    <Link to="/portal/capstone" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-user-circle fa-2x fa-fw" style={{color:"#404040",marginRight:"15px"}}></i>
-                        <span ><strong>Capstone</strong></span>
-                    </Link>
-                </li>
                 
-                <li style={{paddingRight:"14px"}}>
-                    <Link to="/portal/portfoliosubmission" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-user-circle fa-2x fa-fw" style={{ marginRight:"13px",color:"#404040"}}></i>
-                        <span ><strong>Portfolio Submission</strong></span>
+                    <Link to="/portal/webcode" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Webcode' className='menubar-items ' icon={<GoTasklist style={{fontSize:"20px"}}/>}> Webcode</Menu.Item>
+                     </Link>
+               
+                
+                    <Link to="/portal/capstone" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Capstone' className='menubar-items ' icon={<GoTasklist style={{fontSize:"20px"}}/>}> Capstone</Menu.Item>
                     </Link>
-                </li>
-                <li>
-                    <Link to="/portal/application" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard fa-2x fa-fw" style={{ color:"#404040",marginRight:"15px"}}></i>
-                        <span ><strong>Application</strong></span>
+               
+                
+                
+                    <Link to="/portal/portfoliosubmission" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='PortFolio Submission' className='menubar-items ' icon={<GoTasklist style={{fontSize:"20px"}}/>}> PortFolio Submission</Menu.Item>
                     </Link>
-                </li>
-                <li>
-                    <Link to="/portal/interviewtask" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-clipboard-list fa-2x fa-fw" style={{ marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Interview Tasks</strong></span>
+               
+                
+                    <Link to="/portal/application" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Interview Tasks' className='menubar-items ' icon={<AiOutlineFileDone style={{fontSize:"20px"}}/>}> Interview Tasks</Menu.Item>
+                     </Link>
+               
+                
+                    <Link to="/portal/interviewtask" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Interview Tasks' className='menubar-items ' icon={<GoTasklist style={{fontSize:"20px"}}/>}> Interview Tasks</Menu.Item>
                     </Link>
-                </li>
-                <li>
-                    <Link to="/portal/certificate" style={{textDecoration:"none",color:"black"}}>
-                        <i className="fa fa-certificate fa-2x fa-fw" style={{ marginRight:"15px",color:"#404040"}}></i>
-                        <span ><strong>Certificates</strong></span>
-                    </Link>
-                </li>
+               
+                
+                    <Link to="/portal/certificate" style={{textDecoration:"none"}}>
+                    <Menu.Item 
+                        key='Certificates' className='menubar-items ' icon={<PiCertificateFill style={{fontSize:"20px"}}/>}> Certificates</Menu.Item>
+                   </Link>
+                
                 
                 {userRole && userRole === 'admin' && (
-                    <li>
-                        <Link to="#" style={{textDecoration:"none",color:"black"}}>
-                            <i className="fa fa-cogs fa-2x fa-fw " style={{color:"#404040",marginRight:"15px"}}></i>
-                            <span><strong>Settings</strong></span>
-                        </Link>
-                    </li>
+                    
+                        <Link to="#" style={{textDecoration:"none"}}>
+                        <Menu.Item 
+                        key='Settings' className='menubar-items ' icon={<MdOutlineSettingsSuggest style={{fontSize:"20px"}}/>}> Settings</Menu.Item>
+                   </Link>
+                   
                 )}
-            </ul>
+            </Menu>
             </div>
             <div className="userinfo">
                 
-                <button className="btn btn-outline-success btn-sm" onClick={() => navigate(-1)}>Back</button>
-                <Link className="btn btn-outline-success btn-sm" to="/logoutpage">Logout</Link>
+                <button className="btn btn-success btn-sm mr-2 bg-" onClick={() => navigate(-1)}>Back</button>
+                <Link className="btn btn-success btn-sm" to="/logoutpage">Logout</Link>
             </div>
-            <button onClick={toggleSidebar} className="sidebar-toggle-btn">
-                <i className={`fa fa-chevron-${show ? 'left' : 'right'}`}></i>
-            </button>
-        </div>
+
+            <Layout>
+            <Button  type='text'
+            className='toggle d-flex justify-content-center alignt-items-center' 
+            onClick={()=> setCollapsed(!collapsed)}
+            icon={collapsed ? 
+            <MenuUnfoldOutlined style={{}}/> : <MenuFoldOutlined/> } style={{color:"white"}}/>
+         
+            </Layout>
+           
+        </Sider>
         </>
     );
 }

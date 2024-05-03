@@ -12,7 +12,7 @@ const MentorList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [pageNumber]);
 
   const fetchData = async () => {
     try {
@@ -46,8 +46,8 @@ const MentorList = () => {
           <td>{mentor.email}</td>
           <td>{mentor.course ? mentor.course.courseName : 'N/A'}</td>
           <td>{mentor.contact}</td>
-          <td className='d-flex justify-content-center'>
-            <Link to={`/portal/updateMentor/${mentor._id}`} className="btn btn-success" style={{ marginRight: "10px" }}>Edit</Link>
+          <td>
+            <Link to={`/portal/updateMentor/${mentor._id}`} className="btn btn-success mr-2">Edit</Link>
             <button className="btn btn-danger" onClick={() => handleDelete(mentor._id)}>Delete</button>
           </td>
         </tr>
@@ -61,37 +61,37 @@ const MentorList = () => {
   };
 
   return (
-    <div >
-  
-  <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
-        <div className="w-50 bg-white rounded p-4" style={{marginTop:"3rem"}} >
-          <h1 className='d-flex justify-content-center mt-5'>Mentors List</h1>
-          
-          <Link to="/portal/createMentor" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add +</Link>
-          <table className='table' style={{ fontSize: "18px" }}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Course</th>
-                <th>Contact</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayMentors}
-            </tbody>
-          </table>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
-        </div>
+    <div className="container">
+      <h1 className="mt-5 mb-4 text-center">Mentors List</h1>
+      <div className='d-flex justify-content-center'>
+        <Link to="/portal/createMentor" className="btn btn-success mb-4" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Mentor</Link>
+      </div>
+      <div className="table-responsive">
+        <table className="table table-striped custom-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>COURSE</th>
+              <th>CONTACT</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayMentors}
+          </tbody>
+        </table>
+      </div>
+      <div className="d-flex justify-content-center">
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+        />
       </div>
     </div>
   );

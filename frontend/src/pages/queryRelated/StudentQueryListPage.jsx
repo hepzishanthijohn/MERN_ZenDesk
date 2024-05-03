@@ -6,65 +6,87 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../components/sub-components/Navbar/Navbar';
 
 const StudentQueryListPage = () => {
-  const [queries, setQuery] = useState([]);
+  const [queries, setQueries] = useState([]);
   const { studentId } = useParams();
 
   useEffect(() => {
-    const fetchTasks = async () => {
+    const fetchQueries = async () => {
       try {
         const response = await axios.get(`https://mernstack-zendesk.onrender.com/query`);
-        setQuery(response.data);
+        setQueries(response.data);
       } catch (error) {
-        console.log('Error fetching tasks:', error);
+        console.log('Error fetching queries:', error);
       }
     };
 
-    fetchTasks();
-  }, [queries]);
+    fetchQueries();
+  }, []);
 
-  // Function to handle storing task ID in local storage
-  const handleViewTask = (queryId, queryTitle) => {
-    localStorage.setItem('currentqueryId', queryId);
-    localStorage.setItem('currentqueryTitle', queryTitle);
+  const handleViewQuery = (queryId, queryTitle) => {
+    localStorage.setItem('currentQueryId', queryId);
+    localStorage.setItem('currentQueryTitle', queryTitle);
   };
 
   return (
-    <div>
-      
-      <div>
-
-      <ul className='d-flex justify-content-center align-items-center flex-column fs-6' >
-      <h2 className='d-flex justify-content-center mb-4' style={{marginTop:"9rem"}}>Student Queries</h2>
-        {queries.map((query,index) => (
+    <Container>
+      <h2 className='text-center my-5'>Student Queries</h2>
+      <ul className='list-unstyled d-flex justify-content-center align-items-center flex-column fs-6'>
+        {queries.map((query, index) => (
           <TaskContainer key={query._id}>
             <div>
-              <h6 className='mt-4'>Query: {index+1}</h6>
+              <h6 className='mt-4'>Query {index + 1}</h6>
               <h3>{query.title}</h3>
               <p>{query.description}</p>
               <Link
-                to={`/portal/queryResponsepage/:${query._id}`}
+                to={`/portal/queryResponsepage/${query._id}`}
                 className="btn btn-primary mb-3"
-                onClick={() => handleViewTask(query._id, query.title)}
+                onClick={() => handleViewQuery(query._id, query.title)}
               >
-                view
+                View
               </Link>
             </div>
           </TaskContainer>
         ))}
       </ul>
-      </div>
-    </div>
+    </Container>
   );
 };
 
 export default StudentQueryListPage;
-const TaskContainer= styled.div`
-    
-    width:70%;
-    background: #ffffff;
-    border: 1px solid #dedede;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
-    border-radius: 12px;
-    margin:0 0 10px 20px;
-    padding:1px 0 12px 25px;`
+
+const Container = styled.div`
+  min-height: 100vh;
+  padding: 20px;
+`;
+
+const TaskContainer = styled.div`
+  width: 70%;
+  background: #ffffff;
+  border: 1px solid #dedede;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  }
+`;

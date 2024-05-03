@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Navbar from '../../components/sub-components/Navbar/Navbar';
 import ReactPaginate from 'react-paginate';
+import { Table, Button } from 'antd';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 const StudentList = () => {
   const [data, setData] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const usersPerPage = 5; // Number of users per page
-  const pagesVisited = pageNumber * usersPerPage;
+  const usersPerPage = 10; // Number of users per page
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [pageNumber,data]);
 
   const fetchData = async () => {
     try {
@@ -23,84 +23,75 @@ const StudentList = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this record?')) {
-      axios.delete(`https://mernstack-zendesk.onrender.com/student/${id}`)
-        .then(response => {
-          console.log('Record deleted successfully:', response);
-          window.location.reload();
-        })
-        .catch(error => {
-          console.log('Error deleting record:', error);
-        });
+      try {
+        await axios.delete(`https://mernstack-zendesk.onrender.com/student/${id}`);
+        fetchData(); // Refresh data after deletion
+      } catch (error) {
+        console.log('Error deleting record:', error);
+      }
     }
   };
 
-  const displayUsers = data
-    .slice(pagesVisited, pagesVisited + usersPerPage)
-    .map((user, index) => {
-      return (
-        <tr key={user._id}>
-          <td>{index + 1}</td>
-          <td>{user.name}</td>
-          <td>{user.email}</td>
-          <td>{user.course ? user.course.courseName : 'N/A'}</td>
-          <td>{user.contact}</td>
-          <td className='d-flex justify-content-center'>
-            <Link to={`/portal/updateStudent/${user._id}`} className="btn btn-success" style={{ marginRight: "10px" }}>Edit</Link>
-            <span><button className="btn btn-danger " onClick={(e) => handleDelete(user._id)}>Delete</button></span>
-          </td>
-        </tr>
-      );
-    });
+  const columns = [
+    { title: 'ID', dataIndex: 'index', key: 'index', render: (text, record, index) => index + 1 },
+    { title: 'NAME', dataIndex: 'name', key: 'name' },
+    { title: 'EMAIL', dataIndex: 'email', key: 'email' },
+    { 
+      title: 'COURSE', 
+      dataIndex: 'course', 
+      key: 'courseName',
+      render: (course) => (course ? course.courseName : 'N/A'),
+    },
+    { title: 'CONTACT', dataIndex: 'contact', key: 'contact' },
+    {
+      title: 'ACTION',
+      dataIndex: '_id',
+      key: 'action',
+      render: (id) => (
+        <>
+          <Link to={`/portal/updateStudent/${id}`}>
+            <Button type="primary" icon={<EditOutlined />} style={{ marginRight: 8 }}>Edit</Button>
+          </Link>
+          <Button type="danger" icon={<DeleteOutlined />} onClick={() => handleDelete(id)}>Delete</Button>
+        </>
+      ),
+    },
+  ];
 
   const pageCount = Math.ceil(data.length / usersPerPage);
 
-  const changePage = ({ selected }) => {
+  const handlePageChange = ({ selected }) => {
     setPageNumber(selected);
   };
 
   return (
-
-    <>
-   
-    <div>
-      
-
-      <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
-        <div className="w-50 bg-white rounded p-4" style={{marginTop:"3rem"}} >
-          <h1 className='d-flex justify-content-center mt-5'>Student List</h1>
-          
-          <Link to="/portal/createStudent" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add +</Link>
-          <table className='table' style={{ fontSize: "18px" }}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Course</th>
-                <th>Contact</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayUsers}
-            </tbody>
-          </table>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
-        </div>
+    <div className="container">
+      <h3 className="mt-5 mb-4 d-flex justify-content-center"><strong>Student List</strong></h3>
+      <hr />
+      <div style={{ marginBottom: 16 }}>
+        <Link to="/portal/createStudent">
+          <Button type="primary">Add Student</Button>
+        </Link>
       </div>
+      <div className="custom-table">
+        <Table
+          columns={columns}
+          dataSource={data.slice(pageNumber * usersPerPage, (pageNumber + 1) * usersPerPage)}
+          pagination={false}
+        />
+      </div>
+      <ReactPaginate
+        previousLabel="Previous"
+        nextLabel="Next"
+        pageCount={pageCount}
+        onPageChange={handlePageChange}
+        containerClassName="pagination justify-content-center"
+        activeClassName="active"
+      />
     </div>
-
-    </>
-      );
+  );
 };
 
 export default StudentList;

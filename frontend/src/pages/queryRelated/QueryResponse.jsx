@@ -59,62 +59,58 @@ const QueryResponse = () => {
   };
 
   return (
-    <div>
-      
-      
-      <div className="d-flex vw-80 vh-80  justify-content-center align-items-center">
-        <div className="w-70 bg-white " style={{marginTop:"5rem"}} >
-          <h1 className='d-flex justify-content-center mt-5'>
-            Query Response Page
-          </h1>
-          
+    <Container>
+      <Content>
+        <h1>Query Response Page</h1>
+        <hr />
         <TaskContainer>
-        {submissionSuccess && <SuccessMessage>Response submitted successfully!</SuccessMessage>} {/* Render success message */}
-        {query ? (
-          <div style={{ fontSize: "19px" }}>
+          {submissionSuccess && <SuccessMessage>Response submitted successfully!</SuccessMessage>}
+          {query ? (
             <div>
-              <h5>Query Title : {query.title}</h5>
-            </div>
-            <blockquote className="blockquote"><p>Description: {query.description}</p></blockquote>
-            <div>
+              <h6><strong>Query Title: </strong>{query.title}</h6>
+              <blockquote><p>Description: {query.description}</p></blockquote>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label>Query Response:</label>
-                  <input className="form-control mb-4" type="text" name="queryResponse"
-                    value={submission.queryResponse} style={{ width: "90%" }} onChange={handleChange} />
+                  <input className="form-control" type="text" name="queryResponse"
+                    value={submission.queryResponse} onChange={handleChange} />
                 </div>
-                <div className='d-flex justify-content-end'>
-                  <button className='btn btn-primary mr-2 ' style={{ background: "" }} type="submit" disabled={submitting}>Submit</button>
-                  <button className="btn btn-success mr-4" onClick={() => navigate(-1)}>Back</button>
-
+                <div className='button-group'>
+                  <SubmitButton type="submit" disabled={submitting}>Submit</SubmitButton>
+                  <CancelButton onClick={() => navigate(-1)}>Back</CancelButton>
                 </div>
-                
-        
               </form>
             </div>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </TaskContainer>
-      </div>
-      </div>
-    </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </TaskContainer>
+      </Content>
+    </Container>
   );
 };
 
 export default QueryResponse;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const Content = styled.div`
+  width: 80%;
+`;
+
 const TaskContainer = styled.div`
-  width:100%;
-  fontsize: 20px;
   background: #ffffff;
   border: 1px solid #dedede;
   box-sizing: border-box;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
   border-radius: 12px;
-  margin:50px 0 30px 70px;
-  padding:1px 0 22px 25px;
+  padding: 20px;
+  margin-top: 50px;
 `;
 
 const SuccessMessage = styled.div`
@@ -124,3 +120,26 @@ const SuccessMessage = styled.div`
   padding: 10px;
   margin-bottom: 10px;
 `;
+
+const FormButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`
+
+const SubmitButton = styled(FormButton)`
+  background-color: #007bff;
+  color: #fff;
+  margin-right: 10px;
+
+  &:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+`
+
+const CancelButton = styled(FormButton)`
+  background-color: #dc3545;
+  color: #fff;
+`
