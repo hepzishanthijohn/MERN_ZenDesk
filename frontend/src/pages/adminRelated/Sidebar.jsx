@@ -208,7 +208,7 @@ function Sidebar() {
                 
                     <Link to="/portal/application" style={{textDecoration:"none"}}>
                     <Menu.Item 
-                        key='Interview Tasks' className='menubar-items ' icon={<AiOutlineFileDone style={{fontSize:"20px"}}/>}> Interview Tasks</Menu.Item>
+                        key='Interview Tasks' className='menubar-items ' icon={<AiOutlineFileDone style={{fontSize:"20px"}}/>}> Application</Menu.Item>
                      </Link>
                
                 

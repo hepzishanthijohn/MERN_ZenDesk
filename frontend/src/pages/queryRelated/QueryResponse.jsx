@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import Navbar from '../../components/sub-components/Navbar/Navbar';
+import responseImg from "../../assets/images/response.webp"
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -86,6 +86,9 @@ const QueryResponse = () => {
           )}
         </TaskContainer>
       </Content>
+      <ImgContainer>
+        <img src={responseImg} alt="" />
+      </ImgContainer>
     </Container>
   );
 };
@@ -97,10 +100,30 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ImgContainer = styled.div`
+  img{
+    height:18rem;
+    margin: 2rem 0 0 0;
+  }
+  width: 40%;
+  padding: 20px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Content = styled.div`
-  width: 80%;
+  width: 60%;
+  margin: 0 0 0 10rem;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 0 0 10rem;
+  }
 `;
 
 const TaskContainer = styled.div`

@@ -6,13 +6,14 @@ import ReactPaginate from 'react-paginate';
 
 const MentorList = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [pageNumber, setPageNumber] = useState(0);
   const mentorsPerPage = 5; // Number of mentors per page
   const pagesVisited = pageNumber * mentorsPerPage;
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, []);
 
   const fetchData = async () => {
     try {
@@ -20,6 +21,8 @@ const MentorList = () => {
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false after data is fetched, whether the request succeeds or fails
     }
   };
 
@@ -66,23 +69,27 @@ const MentorList = () => {
       <div className='d-flex justify-content-center'>
         <Link to="/portal/createMentor" className="btn btn-success mb-4" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Mentor</Link>
       </div>
-      <div className="table-responsive">
-        <table className="table table-striped custom-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>COURSE</th>
-              <th>CONTACT</th>
-              <th>ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {displayMentors}
-          </tbody>
-        </table>
-      </div>
+      {loading ? ( // Display loading indicator if loading is true
+        <div className='d-flex justify-content-center'>Loading...</div>
+      ) : (
+        <div className="table-responsive">
+          <table className="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>COURSE</th>
+                <th>CONTACT</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {displayMentors}
+            </tbody>
+          </table>
+        </div>
+      )}
       <div className="d-flex justify-content-center">
         <ReactPaginate
           previousLabel={"Previous"}

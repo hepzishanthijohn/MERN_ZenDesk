@@ -9,13 +9,14 @@ import styled from 'styled-components';
 
 const CourseList = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Initialize loading state
   const [pageNumber, setPageNumber] = useState(0);
   const coursesPerPage = 5; // Number of courses per page
   const pagesVisited = pageNumber * coursesPerPage;
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [pageNumber]); // Fetch data when pageNumber changes
 
   const fetchData = async () => {
     try {
@@ -23,6 +24,8 @@ const CourseList = () => {
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false after data is fetched
     }
   };
 
@@ -31,7 +34,7 @@ const CourseList = () => {
       axios.delete(`https://mernstack-zendesk.onrender.com/course/${id}`)
         .then(response => {
           console.log('Record deleted successfully:', response);
-          window.location.reload();
+          fetchData(); // Refresh data after deletion
         })
         .catch(error => {
           console.log('Error deleting record:', error);
@@ -65,26 +68,31 @@ const CourseList = () => {
   };
 
   return (
-    <div className="container">
-      <Container>
+    
+  <div className="container">
+    <Container>
       <div className="d-flex justify-content-center align-items-center">
         <div className="course-list-container">
           <h1 className='text-center'>Course List</h1>
           <Link to="/portal/createCourse" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Course</Link>
-          <div className="table-responsive">
-            <table className='table'>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Course Name</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {displayCourses}
-              </tbody>
-            </table>
-          </div>
+          {loading ? ( // Show loading indicator while loading is true
+            <div>Loading...</div>
+          ) : (
+            <div className="table-responsive">
+              <table className='table'>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {displayCourses}
+                </tbody>
+              </table>
+            </div>
+          )}
           <PaginationContainer>
             <ReactPaginate
               previousLabel={"Previous"}
@@ -98,7 +106,7 @@ const CourseList = () => {
         </div>
       </div>
     </Container>
-    </div>
+  </div>
   );
 };
 

@@ -8,6 +8,7 @@ import ReactPaginate from 'react-paginate';
 
 const StudentTaskList = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Initialize loading state
   const [pageNumber, setPageNumber] = useState(0);
   const studentsPerPage = 10; // Number of students per page
   const pagesVisited = pageNumber * studentsPerPage;
@@ -15,7 +16,7 @@ const StudentTaskList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [pageNumber]); // Fetch data when pageNumber changes
 
   const fetchData = async () => {
     try {
@@ -23,6 +24,8 @@ const StudentTaskList = () => {
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false after data is fetched
     }
   };
 
@@ -62,18 +65,22 @@ const StudentTaskList = () => {
       <div className="row justify-content-center">
         <div className="col-md-8">
           <h1 className="text-center mb-5">Student Task Submission</h1>
-          <table className="table table-bordered table-striped">
-            <thead className="thead-dark">
-              <tr>
-                <th>ID</th>
-                <th>Student Name</th>
-                <th>Task Submission</th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayCourses}
-            </tbody>
-          </table>
+          {loading ? ( // Show loading indicator while loading is true
+            <div>Loading...</div>
+          ) : (
+            <table className="table table-bordered table-striped">
+              <thead className="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Student Name</th>
+                  <th>Task Submission</th>
+                </tr>
+              </thead>
+              <tbody>
+                {displayCourses}
+              </tbody>
+            </table>
+          )}
           <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}

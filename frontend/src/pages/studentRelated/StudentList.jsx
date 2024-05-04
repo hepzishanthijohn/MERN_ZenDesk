@@ -7,19 +7,23 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 const StudentList = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false); // State variable for loading
   const [pageNumber, setPageNumber] = useState(0);
   const usersPerPage = 10; // Number of users per page
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, []); // Fetch data only on component mount
 
   const fetchData = async () => {
+    setLoading(true); // Set loading to true when fetching data
     try {
       const response = await axios.get('https://mernstack-zendesk.onrender.com/student');
       setData(response.data);
     } catch (error) {
       console.log('Error fetching data:', error);
+    } finally {
+      setLoading(false); // Set loading to false after data is fetched
     }
   };
 
@@ -76,11 +80,15 @@ const StudentList = () => {
         </Link>
       </div>
       <div className="custom-table">
-        <Table
-          columns={columns}
-          dataSource={data.slice(pageNumber * usersPerPage, (pageNumber + 1) * usersPerPage)}
-          pagination={false}
-        />
+        {loading ? ( // Display loading indicator if loading is true
+          <div className='d-flex justify-content-center fs-4'>Loading...</div>
+        ) : (
+          <Table
+            columns={columns}
+            dataSource={data.slice(pageNumber * usersPerPage, (pageNumber + 1) * usersPerPage)}
+            pagination={false}
+          />
+        )}
       </div>
       <ReactPaginate
         previousLabel="Previous"
