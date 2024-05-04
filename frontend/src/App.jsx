@@ -53,6 +53,7 @@ import StudentQueryListPage from './pages/queryRelated/StudentQueryListPage';
 import StudentQuerySubmissionpage from './pages/queryRelated/StudentQuerySubmissionpage';
 import StudentTaskslist from './pages/tasksRelated/StudentTaskslist';
 import UserProfilePage from './pages/UserProfilepage';
+import Pagenotfound from './pages/Pagenotfound';
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
           <Route path='mentorLogin' element={<MentorLoginForm />} />
           <Route path='logoutpage' element={<LogoutPage />}/>
           <Route path= 'chooseUser' element={<ChooseUser/>}/> 
+          <Route path="*" element={<Pagenotfound/>}/>
           <Route path='/portal' element={<Portal />}>
             <Route path='clientdashboard' element={<ClientDashboard />} />
             <Route path='admindashboard' element={<AdminDashboard />} />
@@ -120,7 +122,7 @@ function App() {
             <Route path="profile" element={<UserProfilePage/>}/>
 
 
-            <Route path="*" element={<Error/>}/>
+            
           </Route>
         </Routes>
         </BrowserRouter>

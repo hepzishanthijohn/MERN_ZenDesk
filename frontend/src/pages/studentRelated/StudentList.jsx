@@ -12,7 +12,7 @@ const StudentList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [pageNumber,data]);
+  }, [data]);
 
   const fetchData = async () => {
     try {

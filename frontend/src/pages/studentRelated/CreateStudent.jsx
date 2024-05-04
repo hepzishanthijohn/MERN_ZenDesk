@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import studentImage from '../../assets/images/student1.jpg'; // Importing the image
 
 const CreateStudent = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '', contact: '', course: '' });
@@ -40,11 +41,12 @@ const CreateStudent = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-header bg-primary text-white">
-              <h2 className="text-center mb-2">Create Student</h2>
+              <h4 className="text-center mb-2">Create Student</h4>
             </div>
             <div className="card-body">
+              <img src={studentImage} alt="Student" className="img-fluid mb-3" style={{height:"40vh"}}/> {/* Image added here */}
               <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div className="mb-3 ">
                   <label className="form-label">Name</label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" />
                 </div>

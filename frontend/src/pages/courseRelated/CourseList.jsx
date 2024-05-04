@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../../components/sub-components/Navbar/Navbar';
 import ReactPaginate from 'react-paginate';
+import styled from 'styled-components';
 
 const CourseList = () => {
   const [data, setData] = useState([]);
@@ -64,36 +65,120 @@ const CourseList = () => {
   };
 
   return (
-    <div>
-      
-      <div className="d-flex vw-80 vh-80 justify-content-center align-items-center">
-        <div className="w-50 bg-white rounded p-4" style={{marginTop:"6rem"}}>
-        <h1 className='d-flex justify-content-center'>Course List</h1>
-          <Link to="/portal/createCourse" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add +</Link>
-          <table className='table' style={{ fontSize: "18px" }}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {displayCourses}
-            </tbody>
-          </table>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
+    <div className="container">
+      <Container>
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="course-list-container">
+          <h1 className='text-center'>Course List</h1>
+          <Link to="/portal/createCourse" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Course</Link>
+          <div className="table-responsive">
+            <table className='table'>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Course Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {displayCourses}
+              </tbody>
+            </table>
+          </div>
+          <PaginationContainer>
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              pageCount={pageCount}
+              onPageChange={changePage}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+            />
+          </PaginationContainer>
         </div>
       </div>
+    </Container>
     </div>
   );
 };
 
 export default CourseList;
+
+const Container = styled.div`
+  padding: 20px;
+
+  .course-list-container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  h1 {
+    color: #7a1be1;
+    margin-bottom: 20px;
+  }
+
+  .btn-success {
+    background-color: #7a1be1;
+    border-color: #7a1be1;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .table th, .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table th {
+    background-color: #f2f2f2;
+    text-align: left;
+    color: #333;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .pagination li {
+    margin-right: 5px;
+  }
+
+  .pagination li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .pagination li a:hover {
+    background-color: #f2f2f2;
+  }
+
+  .active a {
+    background-color: #7a1be1;
+    color: #fff;
+  }
+`;
+
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;

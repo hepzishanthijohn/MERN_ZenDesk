@@ -12,7 +12,7 @@ const MentorList = () => {
 
   useEffect(() => {
     fetchData();
-  }, [pageNumber]);
+  }, [data]);
 
   const fetchData = async () => {
     try {

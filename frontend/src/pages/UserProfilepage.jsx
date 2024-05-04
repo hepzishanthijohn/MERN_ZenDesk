@@ -22,28 +22,27 @@ const UserProfilePage = () => {
   }, []);
 
   return (
-    <div className="container">
-        <Container className="mt-5">
-      <Row className="justify-content-center">
-        <Col md={6}>
-          <Card>
-            <Card.Body>
-              <div className="text-center mb-4">
-                <FaUserCircle style={{ fontSize: '5rem' }} />
-              </div>
-              {user && (
-                <>
-                  <p><strong>Name:</strong> {user.name}</p>
-                  <p><strong>Email:</strong> {user.email}</p>
-                  <p><strong>Role:</strong> {user.role}</p>
-                  
-                </>
-              )}
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div className="user-profile">
+      <Container className="mt-5">
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <Card className="profile-card">
+              <Card.Body>
+                <div className="profile-picture">
+                  <FaUserCircle style={{ fontSize: '5rem' }} />
+                </div>
+                {user && (
+                  <>
+                    <p className="profile-info"><strong>Name:</strong> {user.name}</p>
+                    <p className="profile-info"><strong>Email:</strong> {user.email}</p>
+                    <p className="profile-info"><strong>Role:</strong> {user.role}</p>
+                  </>
+                )}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
