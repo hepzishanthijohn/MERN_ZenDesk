@@ -26,7 +26,7 @@ function LoginForm(props) {
     return (
         <>
             <section className="vh-100" style={{ background:`linear-gradient(120deg, #ff6a8e, #fad9c8, #fad9c9, #ffd8ff)` }}>
-                <div className="container d-flex justify-content-center  py-4  h-100">
+                <div className="mentorContainer d-flex justify-content-center  py-4  h-100">
                     <div className="card " style={{ borderRadius: " 1rem" }}>
                         <div className="row-5 d-flex justify-content-center ">
                             <div className="col d-flex align-items-center">

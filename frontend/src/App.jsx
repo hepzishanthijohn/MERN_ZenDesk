@@ -52,6 +52,7 @@ import QueryResponse from './pages/queryRelated/QueryResponse'
 import StudentQueryListPage from './pages/queryRelated/StudentQueryListPage';
 import StudentQuerySubmissionpage from './pages/queryRelated/StudentQuerySubmissionpage';
 import StudentTaskslist from './pages/tasksRelated/StudentTaskslist';
+import UserProfilePage from './pages/UserProfilepage';
 
 function App() {
   return (
@@ -116,7 +117,8 @@ function App() {
             <Route path='createmember' element={<CreateForm />} />
             <Route path='listmember' element={<ListData />} />
             <Route path='Updatemember/:id' element={<UpdateForm />} />
-            
+            <Route path="profile" element={<UserProfilePage/>}/>
+
 
             <Route path="*" element={<Error/>}/>
           </Route>

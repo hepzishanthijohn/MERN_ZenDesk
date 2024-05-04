@@ -1,187 +1,214 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import chooseUserImage from '../assets/images/chooseUser.png'; // Import the image
 
-
-
+const Navbar = () => {
+  return (
+    <StyledNavbar>
+      <Logo src={chooseUserImage} alt="Logo" />
+      <NavLinks>
+        <NavLink href="#admin">Admin</NavLink>
+        <NavLink href="#student">Student</NavLink>
+        <NavLink href="#mentor">Mentor</NavLink>
+      </NavLinks>
+    </StyledNavbar>
+  );
+};
 
 const ChooseUser = ({ visitor }) => {
   const navigate = useNavigate();
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
 
-
-  const navigateHandler = (user) => {
-    if (user === "Admin") {
-      if (visitor === "guest") {
-        const email = "yogendra@12"
-        const fields = { email, password }
-        setLoader(true)
-
-      }
-      else {
-        navigate('/loginform');
-      }
-    }
-
-    else if (user === "Student") {
-      if (visitor === "guest") {
-        const email = "yogendra@12"
-        const fields = { email, password }
-        setLoader(true)
-
-      }
-      else {
-        navigate('/studentLogin');
-      }
-    }
-
-    else if (user === "Mentor") {
-      if (visitor === "guest") {
-        const email = "tony@12"
-        const fields = { email, password }
-        setLoader(true)
-
-      }
-      else {
-        navigate('/mentorLogin');
+  const navigateHandler = (user, email) => {
+    if (visitor === 'guest') {
+      const fields = { email, password: '' };
+      setLoader(true);
+      // Simulating an API call or authentication process
+      setTimeout(() => {
+        setLoader(false);
+        // Redirect based on user type
+        switch (user) {
+          case 'Admin':
+            return navigate('/loginform');
+          case 'Student':
+            return navigate('/studentLogin');
+          case 'Mentor':
+            return navigate('/mentorLogin');
+          default:
+            return;
+        }
+      }, 1500); // Simulated loading time
+    } else {
+      // Redirect based on user type
+      switch (user) {
+        case 'Admin':
+          navigate('/loginform');
+          break;
+        case 'Student':
+          navigate('/studentLogin');
+          break;
+        case 'Mentor':
+          navigate('/mentorLogin');
+          break;
+        default:
+          return;
       }
     }
-  }
+  };
+
   return (
     <>
-    <StyledContainer>
-    <div className="card-deck">
-        <div onClick={() => navigateHandler("Admin")}>
-          <div className="card" style={{fontSize:"19px"}}>
-           <StyledPaper>
-           <div className="card-body">
-              <div className="card-title"> <StyledTypography>Admin</StyledTypography></div>
-              <p className="card-text">Login as an administrator to access the dashboard to manage app data.</p>
-            </div>
-           </StyledPaper>
-            
+      <Navbar />
+      <StyledContainer>
+        <ImageBackground >
+          <div>
+            <img src={chooseUserImage} alt='choose user'  style={{width:"95%"}} />
           </div>
-        </div>
+        </ImageBackground>
+        <ContentContainer>
+          <IntroContainer>
+            <h1 className='mb-5'>Welcome to User Selection Page</h1>
+            <p>
+              The ChooseUser component provides a streamlined way for users to select their role within the application. Whether you're an administrator, student, or mentor, this page offers a clear pathway to access the functionalities tailored to your role.
+            </p>
+            <p>
+              Each user category—Admin, Student, and Mentor—is presented below. Click on the respective card to initiate the login process specific to your role.
+            </p>
+          </IntroContainer>
+          <CardContainer>
+            <StyledCard onClick={() => navigateHandler('Admin')}>
+              <div className="card-body mb-5">
+                <StyledTitle>Admin</StyledTitle>
+                <hr />
+                <p>Login as an administrator to access the dashboard to manage app data.</p>
+              </div>
+            </StyledCard>
 
-        <div onClick={() => navigateHandler("Student")}>
-          <div className="card" style={{fontSize:"19px"}}>
-            <StyledPaper>
-            
-            <div className="card-body">
-              <div className="card-title"><StyledTypography>Student</StyledTypography></div>
-              <p className="card-text">Login as a student to explore course materials and assignments.</p>
-            </div>
-            
-            </StyledPaper>
-          </div>
-          
-        </div>
-            
-          
-            
+            <StyledCard onClick={() => navigateHandler('Student')}>
+              <div className="card-body mb-5">
+                <StyledTitle>Student</StyledTitle>
+                <hr />
+                <p>Login as a student to explore course materials and assignments.</p>
+              </div>
+            </StyledCard>
 
-        <div onClick={() => navigateHandler("Mentor")} >
-         
-          <div className="card" style={{fontSize:"19px"}}>
-            <StyledPaper>
-            <div className="card-body">
-              <div className="card-title"><StyledTypography>Mentor</StyledTypography></div>
-              <p className="card-text">Login as a Mentor to create courses, assignments, and track student progress.</p>
-            </div>
-            </StyledPaper>
-            
-          </div>
-          
-
-        </div>
-          
-      </div>
-
-    </StyledContainer>
-          </>
-    /* <StyledContainer>
-          <Container>
-            <Grid container spacing={2} justifyContent="center">
-              <Grid item xs={12} sm={6} md={4}>
-                <div onClick={() => navigateHandler("Admin")}>
-                  <StyledPaper elevation={3}>
-                    <Box mb={2}>
-                      <AccountCircle fontSize="large" />
-                    </Box>
-                    <StyledTypography>
-                      Admin
-                    </StyledTypography>
-                    Login as an administrator to access the dashboard to manage app data.
-                  </StyledPaper>
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <StyledPaper elevation={3}>
-                  <div onClick={() => navigateHandler("Student")}>
-                    <Box mb={2}>
-                      <School fontSize="large" />
-                    </Box>
-                    <StyledTypography>
-                      Student
-                    </StyledTypography>
-                    Login as a student to explore course materials and assignments.
-                  </div>
-                </StyledPaper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <StyledPaper elevation={3}>
-                  <div onClick={() => navigateHandler("Mentor")}>
-                    <Box mb={2}>
-                      <Group fontSize="large" />
-                    </Box>
-                    <StyledTypography>
-                      Mentor
-                    </StyledTypography>
-                    Login as a Mentor to create courses, assignments, and track student progress.
-                  </div>
-                </StyledPaper>
-              </Grid>
-            </Grid>
-          </Container>
-          <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={loader}
-          >
-            <CircularProgress color="inherit" />
-            Please Wait
-          </Backdrop>
-          
-        </StyledContainer> */
+            <StyledCard onClick={() => navigateHandler('Mentor')}>
+              <div className="card-body mb-5">
+                <StyledTitle>Mentor</StyledTitle>
+                <hr />
+                <p>Login as a Mentor to create courses, assignments, and track student progress.</p>
+              </div>
+            </StyledCard>
+          </CardContainer>
+        </ContentContainer>
+        {/* Loader */}
+        {loader && <LoaderOverlay>Please Wait...</LoaderOverlay>}
+      </StyledContainer>
+    </>
   );
 };
 
 export default ChooseUser;
 
-const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
-  height: 120vh;
-  
+const StyledNavbar = styled.nav`
   display: flex;
-  justify-content: center;
-  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f05b3;
+  color: #fff;
+  padding: 1rem;
 `;
 
-const StyledPaper = styled.div`
-  padding: 20px;
-  height: 15rem;
-  width: 20rem;
+const Logo = styled.img`
+  width: 50px;
+  height: auto;
+`;
 
-  border-radius: 10px;
-  text-align: center;
-  background-color: white;
-  color: black;
-  cursor:pointer;
+const NavLinks = styled.div`
+  display: flex;
+`;
+
+const NavLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: bold;
+
   &:hover {
-    background-color: #2c2c7c;
-    color:white;
+    text-decoration: underline;
   }
 `;
 
-const StyledTypography = styled.h2`
+const StyledContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+`;
+
+const ImageBackground = styled.div`
+  width: 50%;
+  height: 78vh; /* Set height to full viewport height */
+  margin-top: 5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  padding-left: 1rem;
+`;
+
+const IntroContainer = styled.div`
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 1rem;
+  color: #3f05b3;
+  line-height: 1.8;
+  line-space: 17px;
+  margin-bottom: 5rem;
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 2rem;
+`;
+
+const StyledCard = styled.div`
+  cursor: pointer;
+  width: 33%;
+  background-color: #3f05b3;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const StyledTitle = styled.h2`
+  font-size: 24px;
   margin-bottom: 10px;
+`;
+
+const LoaderOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 `;
