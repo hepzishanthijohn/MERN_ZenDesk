@@ -27,7 +27,7 @@ function RegistrationForm() {
         <>
 
 <section className="vh-100" style={{ background:`linear-gradient(120deg, #4a0be2, #e6e6fa)`}}>
-        <div className="container d-flex justify-content-center align-items-center py-4  h-100">
+        <div className="registrationContainer d-flex justify-content-center align-items-center py-4  h-100">
 
               <div className="card d-flex align-items-center " >
                 

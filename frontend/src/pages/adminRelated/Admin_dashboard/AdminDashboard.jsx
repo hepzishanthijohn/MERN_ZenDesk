@@ -61,7 +61,7 @@ const AdminDashboard = () => {
             
             <div className='' style={{fontSize:"22px"}}>
          <div className="container">
-            <div className="d-flex align-items-center justify-content-between " style={{marginTop:"6rem"}}>
+            <div className="d-flex align-items-center justify-content-center " >
                 <h1 className="h3 mb-5 text-gray-800" >Live Dashboard</h1>
             </div>
             <AdminCardList />

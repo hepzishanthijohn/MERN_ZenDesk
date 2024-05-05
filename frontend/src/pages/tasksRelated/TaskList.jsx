@@ -7,19 +7,31 @@ import Navbar from '../../components/sub-components/Navbar/Navbar';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true); // State for loading
   const { studentId } = useParams();
 
-  useEffect(() => {
+  
     const fetchTasks = async () => {
       try {
+        setLoading(true); // Set loading to true before making the API call
         const response = await axios.get(`https://mernstack-zendesk.onrender.com/tasks`);
         setTasks(response.data);
       } catch (error) {
         console.log('Error fetching tasks:', error);
+      } finally {
+        setLoading(false); // Set loading to false after API call is completed (whether successful or with an error)
       }
     };
 
-    fetchTasks();
+    useEffect(() => {
+      fetchTasks();
+    }, []);
+ 
+  useEffect(() => {
+    if (tasks.length === 0) {
+      // Fetch data only if queryData is empty
+      fetchTasks();
+    }
   }, [tasks]);
 
   // Function to handle storing task ID in local storage
@@ -35,24 +47,28 @@ const TaskList = () => {
           <h1 className='d-flex justify-content-center mt-5'>
             Tasks List
           </h1>
-      <ul className='d-flex justify-content-center align-items-center flex-column '>
-        {tasks.map((task,index) => (
-          <TaskContainer key={task._id}>
-            <div>
-              <h6 className='mt-4'>Task: {index+1}</h6>
-              <h3>{task.title}</h3>
-              <p>{task.description}</p>
-              <Link
-                to={`/portal/tasks/:${task._id}`}
-                className="btn btn-primary mb-3"
-                onClick={() => handleViewTask(task._id, task.title)}
-              >
-                Submit the Task
-              </Link>
-            </div>
-          </TaskContainer>
-        ))}
-      </ul>
+      {loading ? ( // Display loading message if loading is true
+        <div>Loading...</div>
+      ) : (
+        <ul className='d-flex justify-content-center align-items-center flex-column '>
+          {tasks.map((task,index) => (
+            <TaskContainer key={task._id}>
+              <div>
+                <h6 className='mt-4'>Task: {index+1}</h6>
+                <h3>{task.title}</h3>
+                <p>{task.description}</p>
+                <Link
+                  to={`/portal/tasks/:${task._id}`}
+                  className="btn btn-primary mb-3"
+                  onClick={() => handleViewTask(task._id, task.title)}
+                >
+                  Submit the Task
+                </Link>
+              </div>
+            </TaskContainer>
+          ))}
+        </ul>
+      )}
       </div>
       </div>
     </div>

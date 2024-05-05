@@ -26,7 +26,7 @@ function LoginForm(props) {
     return (
         <>
             <section className="vh-100" style={{ background:`linear-gradient(120deg, #ff6a8e, #fad9c8, #fad9c9, #ffd8ff)` }}>
-                <div className="container d-flex justify-content-center  py-4  h-100">
+                <div className="studentContainer d-flex justify-content-center  py-4  h-100">
                     <div className="card " style={{ borderRadius: " 1rem" }}>
                         <div className="row-5 d-flex justify-content-center ">
                             <div className="col d-flex align-items-center">
@@ -98,7 +98,7 @@ function LoginForm(props) {
                                         <a className="small text-muted" href="#!">Forgot password?</a>
                                         <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                                             <strong>Don't have an account? </strong>
-                                            <Link to="/registrationform" style={{ color: "#393f81" }}>Register here</Link>
+                                            <Link to="#" style={{ color: "#393f81" }}>Register here</Link>
                                         </p>
                                         <a href="#!" className="small text-muted">Terms of use.</a>
                                         <a href="#!" className="small text-muted">Privacy policy</a>

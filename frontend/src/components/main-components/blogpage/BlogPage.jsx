@@ -56,10 +56,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img2} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#" >Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#" > developing both the frontend and backend of applications.</a>
           </div>
         </div>
         {/* end of item */}
@@ -68,10 +68,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img14} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#">Discover the perfect start to your web journey with our handpicked Vue JS project ideas</a>
           </div>
         </div>
         {/* end of item */}
@@ -80,10 +80,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img3} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#">The library for web and native user interfaces</a>
           </div>
         </div>
         {/* end of item */}
@@ -92,10 +92,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img4} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#"> collection of technologies that help developers build Web Apllication</a>
           </div>
         </div>
         {/* end of item */}
@@ -104,10 +104,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img5} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#">Start your coding journey with Python courses and tutorials.</a>
           </div>
         </div>
         {/* end of item */}
@@ -116,10 +116,10 @@ const BlogPage = () => {
           <div className="design-img">
             <img src={img6} style={{height:"300px"}}  />
             <span><i className="far fa-heart" /> 22</span>
-            <span>Art &amp; Design</span>
+            <span></span>
           </div>
           <div className="design-title">
-            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+            <a href="#">Find out everything you need to know about learning AI in 2024</a>
           </div>
         </div>
         {/* end of item */}
@@ -132,7 +132,7 @@ const BlogPage = () => {
     <div className="container">
       <div className="title">
         <h2>Latest Blog</h2>
-        <p>recent blogs about art &amp; design</p>
+        <p>recent blogs about </p>
       </div>
       <div className="blog-content">
         {/* item */}
@@ -143,8 +143,8 @@ const BlogPage = () => {
           </div>
           <div className="blog-text">
             <span>20 January, 2020</span>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2>Enroll in online cyber security courses Develop the cyber security skills.</h2>
+            <p>The most common path people take when pursuing a job in cyber security is getting a degree.Develop the cyber security skills</p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -157,8 +157,9 @@ const BlogPage = () => {
           </div>
           <div className="blog-text">
             <span>20 January, 2020</span>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2>Free HTML Course: Complete Roadmap to Learn HTML</h2>
+            <p>Unlock Web Development skills, Learn HTML Course for Free. Dive into the basics and master HTML for building dynamic and responsive websites. Join now!
+.</p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -171,8 +172,8 @@ const BlogPage = () => {
           </div>
           <div className="blog-text">
             <span>20 January, 2020</span>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2>starting your journey in web development and learn Angular?</h2>
+            <p>start working on the Angular framework and develop dynamic web applications.Building a strong foundation on the concepts of web Applications.</p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -185,8 +186,8 @@ const BlogPage = () => {
           </div>
           <div className="blog-text">
             <span>20 January, 2020</span>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2>Begin Your Machine Learning Journey from Scratch</h2>
+            <p>Discover the step-by-step guide to start Machine Learning models from scratch. Learn the fundamentals, coding skills, data preprocessing.</p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -199,8 +200,8 @@ const BlogPage = () => {
           </div>
           <div className="blog-text">
             <span>20 January, 2020</span>
-            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2> Digital marketing has become an essential aspect of any business</h2>
+            <p>Learn The Basics of Digital Marketing.Start Your Own Website. Become An SEO Expert. Digital marketing allows businesses to track the success</p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -213,8 +214,8 @@ const BlogPage = () => {
           </div>
           <div className="blog-text" >
             <span>20 January, 2020</span>
-            <h2 >Lorem ipsum, dolor sit amet consectetur adipisicing</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis libero quas ipsum laudantium nihil! Quaerat.</p>
+            <h2 >How To Become a UI UX Designer? [Step-by-Step Guide]</h2>
+            <p>Want to become a UI designer but don’t know where to start? Let’s break down the process step by step.familiarize yourself with design principles </p>
             <a href="#">Read More</a>
           </div>
         </div>
@@ -232,11 +233,11 @@ const BlogPage = () => {
         </div>
         <div className="about-text">
           <div className="title">
-            <h1 style={{fontSize:"4rem"}}><strong>WEB DEVELOPMENT</strong></h1>
-            <p style={{fontSize:"2rem"}}>Web design is my passion</p>
+            <h1 style={{fontSize:"3rem"}}><strong>WEB DEVELOPMENT</strong></h1>
+            <p style={{fontSize:"1.7rem"}}>Web design is my passion</p>
           </div>
-          <p style={{fontSize:"2rem"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id totam voluptatem saepe eius ipsum nam provident sapiente, natus et vel eligendi laboriosam odit eos temporibus impedit veritatis ut, illo deserunt illum voluptate quis beatae quod. Necessitatibus provident dicta consectetur labore!</p>
-          <p style={{fontSize:"2rem"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti natus, eos quia recusandae voluptatem veniam modi officiis minima provident rem sint porro fuga quos tempora ea suscipit vero velit sed laudantium eaque necessitatibus maxime!</p>
+          <p style={{fontSize:"1.2rem"}}>Are you eager to embark on a web development journey? Excited about the endless possibilities of creating stunning websites and applications? Look no further! In this comprehensive guide, we will walk you through the essential steps and provide valuable insights to help you kickstart your web development career.</p>
+          <p style={{fontSize:"1.2rem"}}>Before diving into the vast ocean of web development, it's crucial to understand the basics. Familiarize yourself with the core technologies that power the web, such as HTML, CSS, and JavaScript.</p>
         </div>
       </div>
     </div>

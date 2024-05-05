@@ -13,7 +13,7 @@ function MentorDashboard() {
            
            <div className="container" style={{fontSize:"22px"}}>
            
-           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"6rem"}}>
+           <div className="d-sm-flex align-items-center justify-content-center mb-4" >
                <h1 className="h3 mb-0 text-gray-800" >Dashboard</h1>
            </div>
            <CardList />

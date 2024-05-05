@@ -8,7 +8,12 @@
     z-index: 999;
     font-size: 15px;
 }
-
+.ant-layout-sider-collapsed{
+   a{
+        margin-right: 35px;
+    }
+    
+}
 .menu-bar{
     background-color: #3f05b3;
     height: 88vh;

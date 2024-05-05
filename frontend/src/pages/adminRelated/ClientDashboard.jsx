@@ -13,8 +13,8 @@ function ClientDashboard() {
            
            <div className="container" style={{fontSize:"22px"}}>
            
-           <div className="d-sm-flex align-items-center justify-content-between mb-4" style={{marginTop:"6rem"}}>
-               <h1 className="h3 mt-o text-gray-800" >Dashboard</h1>
+           <div className="d-sm-flex align-items-center justify-content-center mb-4" >
+               <h1 className="h3 mt-o text-gray-800 " >Dashboard</h1>
            </div>
            <CardList />
            <div className="row">

@@ -22,7 +22,7 @@ const Navbar = () => {
           <Nav.Link className="navItms" href="/">Home</Nav.Link>
           <Nav.Link className="navItms" href="#">About</Nav.Link>
           <Nav.Link className="navItms" href="#">Contact</Nav.Link>
-          <Nav.Link className="navItms" href="/loginform">Login</Nav.Link>
+          <Nav.Link className="navItms" href="/chooseUser">Login</Nav.Link>
           <Nav.Link className="navItms" href="/registrationform">Register</Nav.Link>
         </Nav>
         

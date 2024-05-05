@@ -25,7 +25,7 @@ import { useUserContext } from "../../components/main-components/UserContext";
 import './sidebar.css';
 
 function Sidebar() {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const [userRole, setUserRole] = useState(null);
     const navigate = useNavigate();
     const {Header, Sider} = Layout;
