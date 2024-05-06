@@ -76,7 +76,8 @@ const QueryPage = () => {
 
   return (
     <>
-      <Navbar />
+      
+      <div className="boxContainer">
       <div className='container'>
         <div className='d-flex'>
           <div className='w-100 bg-white ml-5'>
@@ -115,6 +116,7 @@ const QueryPage = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

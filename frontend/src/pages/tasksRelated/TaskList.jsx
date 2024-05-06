@@ -41,7 +41,7 @@ const TaskList = () => {
   };
 
   return (
-    <div>
+    <div className='boxContainer'>
        <div className="d-flex  justify-content-center align-items-center">
         <div className=" bg-white " style={{marginTop:"5rem"}} >
           <h1 className='d-flex justify-content-center mt-5'>
@@ -50,7 +50,8 @@ const TaskList = () => {
       {loading ? ( // Display loading message if loading is true
         <div>Loading...</div>
       ) : (
-        <ul className='d-flex justify-content-center align-items-center flex-column '>
+        <div className="task_container">
+          <ul className='d-flex justify-content-center align-items-center flex-column '>
           {tasks.map((task,index) => (
             <TaskContainer key={task._id}>
               <div>
@@ -68,6 +69,7 @@ const TaskList = () => {
             </TaskContainer>
           ))}
         </ul>
+        </div>
       )}
       </div>
       </div>

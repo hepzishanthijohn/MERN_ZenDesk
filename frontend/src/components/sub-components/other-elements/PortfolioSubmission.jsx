@@ -2,7 +2,8 @@ import React from 'react';
 
 const PortfolioSubmission = () => {
   return (
-    <div className="portfolioContainer">
+    <div className="boxContainer">
+      <div className="portfolioContainer ml-3">
       <div className="row justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
         <div className="col-lg-6">
           <div className="card shadow p-4">
@@ -27,7 +28,9 @@ const PortfolioSubmission = () => {
         </div>
       </div>
     </div>
-  );
+
+    </div>
+      );
 };
 
 export default PortfolioSubmission;

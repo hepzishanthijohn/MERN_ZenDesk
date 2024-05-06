@@ -9,7 +9,7 @@ function MentorDashboard() {
     return (
         <>
        
-        <div>
+        <div className='boxContainer'>
            
            <div className="container" style={{fontSize:"22px"}}>
            

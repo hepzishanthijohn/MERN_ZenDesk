@@ -96,7 +96,7 @@ function LoginForm(props) {
                                     </Formik>
                                     <div style={{ fontSize: "20px" }}>
                                         <a className="small text-muted" href="#!">Forgot password?</a>
-                                        <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+                                        <p className="mb-3 pb-lg-2" style={{ color: "#393f81" }}>
                                             <strong>Don't have an account? </strong>
                                             <Link to="#" style={{ color: "#393f81" }}>Register here</Link>
                                         </p>

@@ -66,13 +66,14 @@ const SubmitTaskForm = () => {
           {loading ? ( // Display loading message if loading is true
             <div className='d-flex justify-content-center'>Loading...</div>
           ) : (
-            <ul>
+            <ul className='submitTask_container'>
               {tasks.map(task => (
                 <TaskContainer key={task._id}>
-                  <div>
-                    <h5 className='d-flex justify-content-end mr-5'>{username}</h5>
+                  <div >
+                    <h6 className='d-flex justify-content-end mr-5'>{username}</h6>
                     <div>
                       <h5 className='d-flex justify-content-start mb-1'>{task.taskTitle}</h5>
+                      <hr />
                       <div>
                         {task.submission && Object.keys(task.submission).map((key, index) => (
                           <div key={index}>
@@ -104,11 +105,11 @@ export default SubmitTaskForm;
 const TaskContainer = styled.div`
 
   width: 70%;
-  fontsize: 20px;
+  fontsize: 22px;
   background: #ffffff;
   border: 1px solid #dedede;
   box-sizing: border-box;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.278);
+  box-shadow: 0px 0px 3px rgba(0, 5, 0, 0.208);
   border-radius: 12px;
   margin: 50px 0 30px 70px;
   padding: 1px 0 22px 25px;

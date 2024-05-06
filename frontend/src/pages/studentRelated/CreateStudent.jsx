@@ -36,7 +36,8 @@ const CreateStudent = () => {
   };
 
   return (
-    <div className="container " style={{marginTop:"7rem"}}>
+    <div className="boxContainer">
+      <div className="container " style={{marginTop:"7rem"}}>
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card">
@@ -79,6 +80,7 @@ const CreateStudent = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

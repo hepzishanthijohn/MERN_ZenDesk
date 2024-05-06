@@ -32,6 +32,7 @@
 }
 .container{
   margin-top: 7rem;
+  
 }
 .custom-table {
   font-size: 16px;
@@ -61,6 +62,8 @@
   
 }
 
+
+
 .profile-card .profile-picture {
   display: flex;
   justify-content: center;
@@ -83,10 +86,35 @@
   
 }
 
+
 @media screen and (min-width: 1100px) {
   .formcontainer{
     align-content: center;
-    margin-left: 30rem;
+    margin-left: 40rem;
+  }
+  
+}
+@media screen and  (max-width: 768px) {
+  .boxContainer{
+    width: 82%;
+    margin-left: 80px;
+  }
+  .chart-bar{
+    height: 20rem;
+  }
+  #queriesList{
+    width: 140%;
+    margin-left: -1rem;
+  }
+  .task_container{
+    margin-left: 3.3rem;
+  }
+  .submitTask_container{
+    margin-left: -2rem;
+    width: 130%;
+  }
+  .profile-card{
+    width: 100%;
   }
   
 }

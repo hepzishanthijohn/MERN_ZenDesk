@@ -71,7 +71,8 @@ const StudentList = () => {
   };
 
   return (
-    <div className="container">
+    <div className="boxContainer">
+      <div className="container">
       <h3 className="mt-5 mb-4 d-flex justify-content-center"><strong>Student List</strong></h3>
       <hr />
       <div style={{ marginBottom: 16 }}>
@@ -99,7 +100,9 @@ const StudentList = () => {
         activeClassName="active"
       />
     </div>
-  );
+
+    </div>
+      );
 };
 
 export default StudentList;

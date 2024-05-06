@@ -96,7 +96,7 @@ function LoginForm(props) {
                                         <a className="small text-muted" href="#!">Forgot password?</a>
                                         <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                                             <strong>Don't have an account? </strong>
-                                            <Link to="/registrationform" style={{ color: "#393f81" }}>Register here</Link>
+                                            <Link to="#" style={{ color: "#393f81" }}>Register here</Link>
                                         </p>
                                         <a href="#!" className="small text-muted">Terms of use.</a>
                                         <a href="#!" className="small text-muted">Privacy policy</a>

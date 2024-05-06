@@ -69,44 +69,44 @@ const CourseList = () => {
 
   return (
     
-  <div className="container">
-    <Container>
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="course-list-container">
-          <h1 className='text-center'>Course List</h1>
-          <Link to="/portal/createCourse" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Course</Link>
-          {loading ? ( // Show loading indicator while loading is true
-            <div>Loading...</div>
-          ) : (
-            <div className="table-responsive">
-              <table className='table'>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Course Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {displayCourses}
-                </tbody>
-              </table>
-            </div>
-          )}
-          <PaginationContainer>
-            <ReactPaginate
-              previousLabel={"Previous"}
-              nextLabel={"Next"}
-              pageCount={pageCount}
-              onPageChange={changePage}
-              containerClassName={"pagination"}
-              activeClassName={"active"}
-            />
-          </PaginationContainer>
-        </div>
+  <div className="boxContainer"><div className="container">
+  <Container>
+    <div className="d-flex justify-content-center align-items-center">
+      <div className="course-list-container">
+        <h1 className='text-center'>Course List</h1>
+        <Link to="/portal/createCourse" className="btn btn-success mb-5" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Course</Link>
+        {loading ? ( // Show loading indicator while loading is true
+          <div>Loading...</div>
+        ) : (
+          <div className="table-responsive">
+            <table className='table'>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Course Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {displayCourses}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <PaginationContainer>
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+          />
+        </PaginationContainer>
       </div>
-    </Container>
-  </div>
+    </div>
+  </Container>
+</div></div>
   );
 };
 

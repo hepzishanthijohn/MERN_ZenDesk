@@ -61,7 +61,8 @@ const StudentTaskList = () => {
   };
 
   return (
-    <div className="container">
+   <div className="boxContainer">
+     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-8">
           <h1 className="text-center mb-5">Student Task Submission</h1>
@@ -92,6 +93,7 @@ const StudentTaskList = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

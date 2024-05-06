@@ -64,7 +64,8 @@ const MentorList = () => {
   };
 
   return (
-    <div className="container">
+    <div className="boxContainer">
+      <div className="container">
       <h1 className="mt-5 mb-4 text-center">Mentors List</h1>
       <div className='d-flex justify-content-center'>
         <Link to="/portal/createMentor" className="btn btn-success mb-4" style={{ background: "#7a1be1", fontSize: "20px" }}>Add Mentor</Link>
@@ -100,6 +101,7 @@ const MentorList = () => {
           activeClassName={"active"}
         />
       </div>
+    </div>
     </div>
   );
 };

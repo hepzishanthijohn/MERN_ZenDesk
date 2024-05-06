@@ -97,12 +97,13 @@ const TaskDetails = () => {
   };
 
   return (
-    <div>
-        <Navbar></Navbar>
+    <div className='boxContainer'>
+      
+      <div className="submitTask_container">
       <h1 className='d-flex ' style={{marginLeft:"10rem"}}>Task Details</h1>
       <TaskContainer>
       {task ? (
-        <div style={{fontSize:"19px"}}>
+        <div  style={{fontSize:"19px"}}>
         
 
           <h3 className='mt-5 d-flex justify-content-center'>{task.title}</h3>
@@ -111,7 +112,7 @@ const TaskDetails = () => {
           
           <blockquote className="blockquote"><p>Deadline: {formatDeadline(task.deadline)}</p></blockquote>
           
-          <div>
+          <div >
   
     <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -145,6 +146,7 @@ const TaskDetails = () => {
       )}
       </TaskContainer>
       
+      </div>
     </div>
   );
 };

@@ -54,9 +54,8 @@ const AdminDashboard = () => {
   return (
     
       <>
-      <div >
       
-      </div>
+        <div className="boxContainer">
         <div className='mt-2'>
             
             <div className='' style={{fontSize:"22px"}}>
@@ -137,6 +136,7 @@ const AdminDashboard = () => {
          </div>
           </div>
           </div>
+        </div>
     
       </>
     

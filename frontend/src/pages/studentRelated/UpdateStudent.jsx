@@ -31,7 +31,7 @@ const UpdateStudent = () => {
 
   return (
     <>
-      <Navbar />
+      <div className="boxContainer">
       <div className="container" style={{marginTop:"10rem"}}>
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -62,7 +62,10 @@ const UpdateStudent = () => {
           </div>
         </div>
       </div>
-    </>
+
+      </div>
+      
+          </>
   );
 };
 

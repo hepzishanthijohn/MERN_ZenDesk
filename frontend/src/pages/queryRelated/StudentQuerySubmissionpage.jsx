@@ -65,7 +65,7 @@ const StudentQuerySubmissionpage = () => {
   return (
    <>
    
-    <div className='d-flex'>
+    <div className='submitTask_container d-flex'>
     <div className='w-100 bg-white ml-5' style={{marginTop:"3rem"}}>
       
       {submitted && (

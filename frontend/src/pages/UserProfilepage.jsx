@@ -22,7 +22,8 @@ const UserProfilePage = () => {
   }, []);
 
   return (
-    <div className="user-profile">
+    <div className="boxContainer">
+      <div className="user-profile">
       <Container className="mt-5">
         <Row className="justify-content-center">
           <Col md={6}>
@@ -35,6 +36,7 @@ const UserProfilePage = () => {
                   <>
                     <p className="profile-info"><strong>Name:</strong> {user.name}</p>
                     <p className="profile-info"><strong>Email:</strong> {user.email}</p>
+                    {user.role==='student' || user.role==='mentor'?<p className="profile-info"><strong>Contact:</strong> {user.contact}</p>:null}
                     <p className="profile-info"><strong>Role:</strong> {user.role}</p>
                   </>
                 )}
@@ -43,6 +45,7 @@ const UserProfilePage = () => {
           </Col>
         </Row>
       </Container>
+    </div>
     </div>
   );
 };
