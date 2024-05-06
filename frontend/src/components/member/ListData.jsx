@@ -25,7 +25,6 @@ const ListData = () => {
     if (window.confirm('Are you sure you want to delete this record?')) {
       axios.delete(`https://mernstack-zendesk.onrender.com/members/${id}`)
         .then(response => {
-          console.log('Record deleted successfully:', response);
           // Optionally, you can perform additional actions like updating state or re-fetching data
           fetchData(); // Fetch data again after deletion
         })
