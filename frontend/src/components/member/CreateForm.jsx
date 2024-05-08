@@ -26,11 +26,11 @@ const CreateForm = () => {
 
 
   return (
-    <div>
-      <Navbar/>
-      <div className="d-flex vh-100 bg-white  justify-content-center align-items-center">
+    <div className='container'>
+      
+      <div className="submitTask_container d-flex vh-100 bg-white  justify-content-center align-items-center">
       <div className="w-50 h-100 bg-white text-dark rounded p-3">
-        <div className="container w-50" style={{ fontSize: "15px",marginTop:"-1rem",border:"1px solid lightblue",borderRadius:'10px',padding:"15px"}}>
+        <div className="w-100" style={{ fontSize: "15px",marginTop:"-1rem",border:"1px solid lightblue",borderRadius:'10px',padding:"15px"}}>
           <h2>Create Data</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group mb-">

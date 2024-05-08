@@ -123,14 +123,7 @@ function Sidebar() {
                          </Link>
                    
                 )}
-                {userRole && userRole === 'admin'&&(
-                    
-                        <Link to="/portal/listmember" style={{textDecoration:"none"}}>
-                        <Menu.Item 
-                        key='Members' className='menubar-items ' icon={<FaPeopleGroup style={{fontSize:"20px"}}/>}> Members</Menu.Item>
-                       </Link>
-                   
-                )}
+                
                 
                     <Link to="/portal/class" style={{textDecoration:"none"}}>
                     <Menu.Item 
@@ -234,11 +227,7 @@ function Sidebar() {
                 )}
             </Menu>
             </div>
-            <div className="userinfo">
-                
-                <button className="btn btn-success btn-sm mr-2 bg-" onClick={() => navigate(-1)}>Back</button>
-                <Link className="btn btn-success btn-sm" to="/logoutpage">Logout</Link>
-            </div>
+            
 
             <Layout>
             <Button  type='text'

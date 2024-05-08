@@ -116,15 +116,14 @@ router.put('/:id', getMentor, async (req, res) => {
   }
 });
 
-// Route to delete a mentor by ID
-router.delete('/:id', getMentor, async (req, res) => {
-  try {
-    await res.mentor.remove();
-    res.json({ message: 'Mentor deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+// Route to delete a record by ID
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  Mentor.findByIdAndRemove({_id:id})
+  .then(res => res.json(res))
+  .catch(err => res.json(err))
 });
+
 
 // Middleware function to get mentor by ID
 async function getMentor(req, res, next) {

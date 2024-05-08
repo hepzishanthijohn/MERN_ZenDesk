@@ -31,7 +31,7 @@ function Navbar() {
   };
 
   return (
-    <BootstrapNavbar style={{ backgroundColor: "#3f05b3", top: "0", width: "100%", marginBottom: "8rem", position: "fixed", zIndex: "999" }} expand="lg">
+    <BootstrapNavbar className="navbar_items" style={{ backgroundColor: "#3f05b3", top: "0", width: "100%", marginBottom: "8rem", position: "fixed", zIndex: "999" }} expand="lg">
       <Nav className="ml-auto">
         <Dropdown>
           <Dropdown.Toggle variant="transparent" id="dropdown-basic">

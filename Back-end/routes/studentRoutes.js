@@ -116,16 +116,13 @@ router.put('/:id', getStudent, async (req, res) => {
   }
 });
 
-// Route to delete a student by ID
-router.delete('/:id', getStudent, async (req, res) => {
-  try {
-    await res.student.remove();
-    res.json({ message: 'Student deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+// Route to delete a record by ID
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  Student.findByIdAndRemove({_id:id})
+  .then(res => res.json(res))
+  .catch(err => res.json(err))
 });
-
 // Middleware function to get student by ID
 async function getStudent(req, res, next) {
   try {

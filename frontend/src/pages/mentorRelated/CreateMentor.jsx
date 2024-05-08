@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import mentorImage from '../../assets/images/mentor.png'
+import mentorImage from '../../assets/images/mentor.png';
 import styled from 'styled-components';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required('Name is required'),
+  email: Yup.string().email('Invalid email').required('Email is required'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+  contact: Yup.string().required('Contact is required'),
+  course: Yup.string().required('Course is required'),
+});
 
 const CreateMentor = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     fetchCourses();
@@ -24,23 +31,16 @@ const CreateMentor = () => {
     }
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
+  const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await axios.post('https://mernstack-zendesk.onrender.com/mentor/register', formData);
-      navigate('/portal/mentorList')
-      // Optionally, you can update the state or show a success message
+      await axios.post('https://mernstack-zendesk.onrender.com/mentor/register', values);
+      navigate('/portal/mentorList');
     } catch (error) {
-      console.error('Error creating data:', error);
+      console.error('Error creating mentor:', error);
+      // Handle error globally
     }
+    setSubmitting(false);
   };
-
-
-
 
   return (
     <Container>
@@ -54,36 +54,49 @@ const CreateMentor = () => {
           <FormContainer>
             <div className="formElements">
               <h2 className='mb-5 d-flex justify-content-center'>Create Mentor</h2>
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Name:</label>
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control" />
-                </div>
-                <div className="form-group">
-                  <label>Email:</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control" />
-                </div>
-                <div className="form-group">
-                  <label>Password:</label>
-                  <input type="password" name="password" value={formData.password} onChange={handleChange} className="form-control" />
-                </div>
-                <div className="form-group">
-                  <label>Contact:</label>
-                  <input type="number" name="contact" value={formData.contact} onChange={handleChange} className="form-control" />
-                </div>
-                <div className="form-group">
-                  <label>Course:</label>
-                  <select name="course" value={formData.course} onChange={handleChange} className="form-control">
-                    <option value="">Select Course</option>
-                    {courses.map(course => (
-                      <option key={course._id} value={course.courseName}>{course.courseName}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="text-center">
-                  <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <Formik
+                initialValues={{ name: '', email: '', password: '', contact: '', course: '' }}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ isSubmitting }) => (
+                  <Form>
+                    <div className="form-group">
+                      <label>Name:</label>
+                      <Field type="text" name="name" className="form-control" />
+                      <ErrorMessage name="name" component="div" className="text-danger" />
+                    </div>
+                    <div className="form-group">
+                      <label>Email:</label>
+                      <Field type="email" name="email" className="form-control" />
+                      <ErrorMessage name="email" component="div" className="text-danger" />
+                    </div>
+                    <div className="form-group">
+                      <label>Password:</label>
+                      <Field type="password" name="password" className="form-control" />
+                      <ErrorMessage name="password" component="div" className="text-danger" />
+                    </div>
+                    <div className="form-group">
+                      <label>Contact:</label>
+                      <Field type="number" name="contact" className="form-control" />
+                      <ErrorMessage name="contact" component="div" className="text-danger" />
+                    </div>
+                    <div className="form-group">
+                      <label>Course:</label>
+                      <Field as="select" name="course" className="form-control">
+                        <option value="">Select Course</option>
+                        {courses.map(course => (
+                          <option key={course._id} value={course.courseName}>{course.courseName}</option>
+                        ))}
+                      </Field>
+                      <ErrorMessage name="course" component="div" className="text-danger" />
+                    </div>
+                    <div className="text-center">
+                      <button type="submit" className="btn btn-primary" disabled={isSubmitting}>Submit</button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </FormContainer>
         </div>
