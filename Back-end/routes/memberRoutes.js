@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
   const newData = new Data({
     name: req.body.name,
     email: req.body.email,
-    password: req.body,password,
+    password: req.body.password,
     contact: req.body.contact
     // Add more fields as needed
   });
